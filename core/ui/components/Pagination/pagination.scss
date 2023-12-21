@@ -1,0 +1,32 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+  }
+  
+  .pagination__number {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+  
+    &.active {
+      font-weight: bold;
+    }
+  
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+
+.pagination__arrow {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+  .active {
+    opacity: 0.5;
+  }

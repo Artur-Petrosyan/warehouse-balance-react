@@ -1,0 +1,79 @@
+.card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 0 10px 10px 10px;
+    .ant-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    & .ant-card-cover {
+        & img {
+            height: 250px;
+        }
+    }
+
+
+    & .card__icons {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & .anticon {
+            & svg {
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+             &:hover {
+                opacity: 0.5;
+             }
+            }
+        }
+    }
+
+    & .card__name {
+        background-color: #3c948b;
+        color: #b9e3de;
+        font-size: 18px;
+        border-bottom: 1px white solid;
+        cursor: pointer;
+
+    }
+
+    & .card__image {
+        width: 100%;
+        height: 50%;
+        cursor: pointer;
+    }
+
+    & .card__footer {
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+        background-color: #3c948b;
+
+        & div {
+            width: 15%;
+            height: 50%;
+            display: flex;
+            justify-content: space-between;
+
+            & img {
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+    }
+}
