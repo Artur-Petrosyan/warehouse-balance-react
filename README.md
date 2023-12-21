@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# Warehouse Balance
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The "Warehouse Balance" project is a web application for inventory management of goods in a warehouse. It provides a user-friendly interface for loading XML data, displaying information, and navigating through pages. The application is hosted at [նեթ.հայ](https://նեթ.հայ).
 
-## Available Scripts
+## Usage
 
-In the project directory, you can run:
+1. **Data Loading:**
+    - Download the XML file.
+    - Click "Choose File" and select the downloaded XML.
 
-### `npm start`
+2. **Data Display:**
+    - Click "Open File" to load data.
+    - View information about goods.
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![ezgif.com-gif-maker.gif](src%2Fassets%2Fgif%2Fezgif.com-gif-maker.gif)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. **Navigation:**
+    - Use pagination to navigate.
 
-### `npm test`
+4. **Customization:**
+    - Customize styles in styles.css.
+## Installation and Run
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Install dependencies:
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+bash
+npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Start the project:**
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run dev
+```
+```bash
+npm run prod
+```
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The project is organized into the following structure:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- `src/`: Source files of the project
+    - `core/`: Core logic of the application
+    - `lib/`: Libraries and utilities
+    - `ui/`: User interface components
+- `styles.css`: Style file
+- `index.js`: Entry point for JavaScript
+- `index.html`: HTML template
+- `dist/`: Folder with the compiled project after running `npm run prod`
 
-## Learn More
+## Used Technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Webpack:** Build and dependency management.
+- **HTMLWebpackPlugin:** Generation of HTML files based on a template.
+- **MiniCssExtractPlugin:** Extraction of CSS into a separate file.
+- **CleanWebpackPlugin:** Cleaning the build folder before a new build.
+- **CopyWebpackPlugin:** Copying files to the build folder.
+- **CSS Loader:** Loading CSS files.
+- **File Loader and URL Loader:** File (image) handling during build.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Scripts
 
-### Code Splitting
+- `npm run dev`: Start the project in development mode.
+- `npm run prod`: Build the project for production.
+- `npm start`: Start the project in production mode with a local server.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Domain
 
-### Analyzing the Bundle Size
+This project is hosted at [նեթ.հայ](https://նեթ.հայ) and is accessible for use.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Author
 
-### Making a Progressive Web App
+**Artur Petrosyan**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## License
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the ISC license. See the LICENSE file for details.
