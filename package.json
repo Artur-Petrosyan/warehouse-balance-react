@@ -1,6 +1,10 @@
 {
   "name": "warehouse-balance-react",
   "version": "0.1.0",
+  "author": {
+    "name": "Artur",
+    "lastName": "Petrosyan"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
