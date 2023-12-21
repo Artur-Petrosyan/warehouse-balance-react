@@ -17,7 +17,6 @@
  *   );
  * }
  */
-import { navList } from 'src/constants/headerNavList';
 import {InputSearch} from 'src/core/ui/components';
 
 import {Button} from '../Button';
@@ -26,7 +25,7 @@ import {NavBar} from '../NavBar/NavBar';
 
 import 'src/core/ui/components/Header/header.scss'
 
-export const Header = () => {
+export const Header = ({navList}) => {
     return (
         <header className='header'>
             <NavBar navList={navList} />
