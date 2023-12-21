@@ -1,10 +1,8 @@
-import './App.css';
+import '../App.css';
 
-function App() {
-  return (
+const App = () => (
     <div className="App">
     </div>
-  );
-}
+);
 
 export default App;
