@@ -22,9 +22,9 @@
  *
  * export default navBar;
  */
-import {useNavigation} from "src/hooks/useNavigation";
+import {useNavigation} from "core/hooks/useNavigation";
 import {NavLink} from "react-router-dom";
-import 'src/core/ui/components/Header/header.scss'
+import 'core/ui/components/Header/header.scss'
 
 export const NavBar = ({navList, subMenu}) => {
     const navigate = useNavigation()
