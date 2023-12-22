@@ -1,17 +1,11 @@
 import '../App.css';
-import { Header } from "../core";
-import { Router } from "./Providers/routes";
+import LayoutMemo from "../core/ui/components/Layout/Layout";
 
-const App = () => (
-    <div className="App">
-        <Header navList={[
-            { id: 1, name: 'Home' },
-            { id: 2, name: 'Written off' },
-            { id: 3, name: 'Contacts' },
-        ]}></Header>
-        {Router()}
-
-    </div>
-);
-
+const App = () => {
+    return (
+        <div className="App">
+            <LayoutMemo/>
+        </div>
+    )
+}
 export default App;
