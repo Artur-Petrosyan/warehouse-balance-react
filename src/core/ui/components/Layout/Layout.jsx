@@ -21,7 +21,7 @@ const items = [
     getItem('Home' , '/' , <HomeFilled/>) ,
     getItem('Warehouse' , 'Warehouse' , <AccountBookOutlined/>) ,
     getItem('About Us' , 'About Us' , <TeamOutlined/>) ,
-    getItem('Files' , 'Files' , <FileOutlined/>) ,
+    getItem('Contacts' , 'Contacts' , <FileOutlined/>) ,
 ];
 const Layout = () => {
     const [collapsed , setCollapsed] = useState(false);
