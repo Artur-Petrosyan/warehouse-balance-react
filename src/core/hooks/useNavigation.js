@@ -20,11 +20,11 @@ export const useNavigation = () => {
         if (lowerPath === 'home') {
             return '/'
         }
-        if (lowerPath === 'written off') {
-            return `written-off`
+        if (lowerPath === 'warehouse') {
+            return `warehouse`
         }
-        if (lowerPath === 'contacts') {
-            return 'contacts'
+        if (lowerPath === 'about us') {
+            return 'about-us'
         }
         return lowerPath
     };
