@@ -2,8 +2,7 @@ import {  Routes , Route } from "react-router-dom";
 
 import { lazy } from "react";
 import { withLazyLoadWrapper } from "core/lib/withLazyLoadWrapper";
-import WrittenOffPage from "../../pages/WrittenOff/ui/WrittenOffPage";
-
+import { withMemo } from "core";
 
 const Home = lazy(() => import('pages/Home/ui/HomePage'))
 export const Router = () => {
@@ -15,3 +14,4 @@ export const Router = () => {
     )
 
 }
+export const RouterMemo = withMemo(Router);
