@@ -11,11 +11,12 @@
  * // Call the function with a function that retrieves items from the parsed XML data
  * getXMLDataFromLocalStorage(getItems);
  */
-export const getXMLDataFromLocalStorage = (getItems) => {
+export const getXMLDataFromLocalStorage = ( getItems ) => {
     let xmlData = localStorage.getItem('xmlData');
     if ( xmlData ) {
         let parser = new DOMParser();
-        let xmlDoc = parser.parseFromString(xmlData, "text/xml");
-        getItems(xmlDoc);
+        let xmlDoc = parser.parseFromString(xmlData , "text/xml");
+        return xmlDoc.documentElement.children
     }
+    return "Please upload the XML file"
 };
