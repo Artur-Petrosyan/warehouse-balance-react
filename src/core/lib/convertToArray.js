@@ -1,22 +1,26 @@
 /**
- * Converts an HTML element to an array of strings using the specified tag name.
+ * Converts an HTML element to an array of values.
  *
- * @param {HTMLElement} item - An HTML element.
- * @param {string} name - A tag name.
- * @returns {Array} - An array of strings.
- *
+ * @param {HTMLElement} item - The HTML element to be converted.
+ * @param {string} name - The name of the element to be retrieved.
+ * @returns {Array} An array of values.
  * @example
- * // Import the function
- * import { convertToArray } from './convertToArray.js';
+ * import { convertToArray } from "path/to/convertToArray";
  *
- * // Call the function with an HTML element and a tag name
- * const item = document.getElementById('item');
- * const name = 'Description';
- * const descriptionArray = convertToArray(item, name);
- * console.log(descriptionArray);
- * // Output: ['Description 1', 'Description 2']
+ * const myElement = document.getElementById("my-element");
+ * const myArray = convertToArray(myElement, "my-name");
+ *
+ * // Use the array in your code
+ * myArray.forEach((value) => {
+ *   console.log(value);
+ * });
  */
-export const convertToArray = (item, name) => Array.from(item.children)
-    .filter(item => item.tagName === name)
-    .map(item => item.innerHTML)
-    .toString();
+export const convertToArray = (item, name) =>
+    Array.from(item.children)
+        .filter((item) => item.tagName === "Data")
+        .map((signableData) => signableData.querySelector("SignableData"))
+        .map((goodsInfo) => goodsInfo.querySelector("GoodsInfo"))
+        .map((good) => good.querySelector("Good"))
+        .map((item) => item.querySelector(`${name}`))
+        .map((item) => item.innerHTML)
+        .toString();
