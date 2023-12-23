@@ -5,7 +5,7 @@ const xmlDataSlice = createSlice({
     initialState : [] ,
     reducers : {
         setData : ( state , action ) => {
-            state = action.payload
+            return action.payload
         }
     }
 })
