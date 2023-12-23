@@ -1,4 +1,4 @@
-import { handleUpload } from "core/lib/XMLDataLocalStorage/addXMLDataReact";
+import { setUploadXMLToLocalStorage } from "core/lib/XMLDataLocalStorage/setXMLDataReact";
 
 /**
  * Retrieves the upload props for a file upload component.
@@ -16,7 +16,7 @@ import { handleUpload } from "core/lib/XMLDataLocalStorage/addXMLDataReact";
  */
 export const getUploadProps = () => (
     {
-        beforeUpload: handleUpload, // A function that handles the file upload
+        beforeUpload: setUploadXMLToLocalStorage, // A function that handles the file upload
         multiple: false, // Whether to allow multiple files to be uploaded
         showUploadList: false, // Whether to show a list of uploaded files
     }
