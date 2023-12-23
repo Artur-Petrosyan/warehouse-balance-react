@@ -1,34 +1,35 @@
 
 /**
- * Converts an HTMLCollection to an array of objects with the specified properties.
+ * Converts an HTML collection to an array of objects.
  *
- * @param {HTMLCollection} items - An HTMLCollection of elements.
- * @returns {Array} - An array of objects with the specified properties.
- *
+ * @param {HTMLCollection} items - The HTML collection to be converted.
+ * @returns {Array} An array of objects.
  * @example
- * // Import the function
- * import { arrayFromHTMLCollection } from './arrayFromHTMLCollection.js';
+ * import { arrayFromHTMLCollection } from "path/to/arrayFromHTMLCollection";
  *
- * // Call the function with an HTMLCollection of elements
- * const items = document.getElementsByClassName('item');
- * const itemsArray = arrayFromHTMLCollection(items);
- * console.log(itemsArray);
- * // Output: [
- * //     { name: ['Description 1', 'Description 2'], amount: 10, notNDS: 5, totalPrice: 15 },
- * //     { name: ['Description 3'], amount: 20, notNDS: 10, totalPrice: 20 },
- * // ]
+ * const htmlCollection = document.getElementsByClassName("my-class");
+ * const myArray = arrayFromHTMLCollection(htmlCollection);
+ *
+ * // Use the array in your code
+ * myArray.forEach((item) => {
+ *   console.log(item.name);
+ *   console.log(item.amount);
+ *   console.log(item.notNDS);
+ *   console.log(item.totalPrice);
+ * });
  */
 import { convertToArray } from "./convertToArray";
 
-export const arrayFromHTMLCollection = items => Array.from(items).map((item) => {
-    const description = convertToArray(item, 'Description');
-    const amount = convertToArray(item, 'Amount');
-    const priceNotNds = convertToArray(item, "Price");
-    const totalPrice = convertToArray(item, "TotalPrice");
-    return {
-        name: description,
-        amount: Number(amount),
-        notNDS: Number(priceNotNds),
-        totalPrice: Number(totalPrice),
-    };
-});
+export const arrayFromHTMLCollection = (items) =>
+    Array.from(items).map((item) => {
+        const description = convertToArray(item, "Description");
+        const amount = convertToArray(item, "Amount");
+        const priceNotNds = convertToArray(item, "Price");
+        const totalPrice = convertToArray(item, "TotalPrice");
+        return {
+            name: description,
+            amount: Number(amount),
+            notNDS: Number(priceNotNds),
+            totalPrice: Number(totalPrice),
+        };
+    });
