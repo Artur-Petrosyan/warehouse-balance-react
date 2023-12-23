@@ -31,6 +31,7 @@ export const totalAmount = data => data.reduce((acc, obj) => {
         existingObj.totalPrice += obj.totalPrice;
     } else {
         acc.push({
+            key: obj.key,
             name: obj.name,
             amount: obj.amount,
             notNDS: obj.notNDS,
