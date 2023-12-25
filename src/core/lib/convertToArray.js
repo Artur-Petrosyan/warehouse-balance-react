@@ -15,12 +15,7 @@
  *   console.log(value);
  * });
  */
-export const convertToArray = (item, name) =>
-    Array.from(item.children)
-        .filter((item) => item.tagName === "Data")
-        .map((signableData) => signableData.querySelector("SignableData"))
-        .map((goodsInfo) => goodsInfo.querySelector("GoodsInfo"))
-        .map((good) => good.querySelector("Good"))
-        .map((item) => item.querySelector(`${name}`))
-        .map((item) => item.innerHTML)
-        .toString();
+export const convertToArray = (item, name) => Array.from(item.children)
+    .filter(item => item.tagName === name)
+    .map(item => item.innerHTML)
+    .toString();
