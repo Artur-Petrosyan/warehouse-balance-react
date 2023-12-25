@@ -16,7 +16,7 @@ export const getXMLDataFromLocalStorage = () => {
     if ( xmlData ) {
         let parser = new DOMParser();
         let xmlDoc = parser.parseFromString(xmlData , "text/xml");
-        return xmlDoc.documentElement.children
+        return xmlDoc.getElementsByTagName("Good")
     }else {
         return null
     }
