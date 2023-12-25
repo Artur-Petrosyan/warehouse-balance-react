@@ -1,4 +1,3 @@
-
 /**
  * A file upload component that uses Ant Design's Upload component.
  *
@@ -28,13 +27,13 @@
  *   );
  * };
  */
-import { Button, Upload as UploadAntd } from "antd";
+import { Button , Upload as UploadAntd } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 
-export const Upload = ({...props }) => {
+export const Upload = ( { uploadProps } ) => {
     return (
-        <UploadAntd {...props}>
-            <Button icon={<UploadOutlined />}>Upload File</Button>
+        <UploadAntd {...uploadProps}>
+            <Button icon={<UploadOutlined/>}>Upload File</Button>
         </UploadAntd>
     );
 };

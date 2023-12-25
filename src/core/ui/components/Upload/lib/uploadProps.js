@@ -16,8 +16,8 @@ import { setUploadXMLToLocalStorage } from "core/lib/XMLDataLocalStorage/setXMLD
  */
 export const getUploadProps = () => (
     {
-        beforeUpload: setUploadXMLToLocalStorage, // A function that handles the file upload
-        multiple: false, // Whether to allow multiple files to be uploaded
-        showUploadList: false, // Whether to show a list of uploaded files
+        beforeUpload: setUploadXMLToLocalStorage,
+        multiple: false,
+        showUploadList: false,
     }
 );

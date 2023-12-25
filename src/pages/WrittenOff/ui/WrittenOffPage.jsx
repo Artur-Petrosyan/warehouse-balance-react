@@ -1,6 +1,6 @@
 import React , { useEffect } from 'react';
 import { Table } from "src/core/ui/components/Table/Table";
-import { Button , Upload } from "antd";
+import { Upload } from "core";
 import { getUploadProps } from "src/core/ui/components/Upload/lib";
 import { getXMLDataFromLocalStorage } from "src/core/lib/XMLDataLocalStorage/getXMLDataFromLocalStorage";
 import { arrayFromHTMLCollection } from "src/core/lib/arrayFromHTMLCollection";
@@ -14,14 +14,13 @@ const WrittenOffController = () => {
     const XMLData = getXMLDataFromLocalStorage()
     const arrayFromXML = arrayFromHTMLCollection(XMLData)
     const resultData = totalAmount(arrayFromXML)
-
     useEffect(() => {
         dispatch(setData(resultData))
     } , [dispatch , resultData])
     return (
         <div>
             <Table key={'1'} dataSource={resultData}/>
-            <Upload {...uploadProps}><Button>Upload</Button></Upload>
+            <Upload uploadProps={uploadProps}/>
         </div>
     );
 };
