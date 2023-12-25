@@ -29,11 +29,12 @@
  */
 import { Button , Upload as UploadAntd } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
-
-export const Upload = ( { uploadProps } ) => {
+import { getUploadProps } from "./lib";
+export const Upload = () => {
+    const uploadProps = getUploadProps()
     return (
-        <UploadAntd {...uploadProps}>
-            <Button icon={<UploadOutlined/>}>Upload File</Button>
+        <UploadAntd {...uploadProps} >
+            <Button icon={<UploadOutlined/>} >Upload File</Button>
         </UploadAntd>
     );
 };
