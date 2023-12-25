@@ -9,20 +9,19 @@ const columns = [
     {
         key : '2' ,
         title : 'Quantity' ,
-        dataIndex : "quantity" ,
+        dataIndex : "amount" ,
 
     } ,
     {
         key : '3' ,
-
         title : 'Without NDS' ,
-        dataIndex : 'withoutNDS' ,
+        dataIndex : 'notNDS' ,
 
     } ,
     {
         key : '4' ,
         title : 'Total Amount' ,
-        dataIndex : 'totalAmount' ,
+        dataIndex : 'totalPrice' ,
 
     } ,
 ];
