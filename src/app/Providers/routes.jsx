@@ -1,8 +1,9 @@
-import {  Routes , Route } from "react-router-dom";
+import { Route , Routes } from "react-router-dom";
 
 import { lazy } from "react";
 import { withLazyLoadWrapper } from "core/lib/withLazyLoadWrapper";
 import { withMemo } from "core";
+import { Page404 } from "pages/Page404";
 
 const HomePage = lazy(() => import('pages/Home/ui/HomePage'))
 const WrittenOffPage = lazy(() => import('pages/WrittenOff/ui/WrittenOffPage'))
@@ -12,10 +13,11 @@ const ContactsPage = lazy(() => import('pages/WrittenOff/ui/WrittenOffPage'))
 export const Router = () => {
     return (
         <Routes>
-            <Route index={true} element={withLazyLoadWrapper(<HomePage />)} />
-            <Route path='/warehouse' element={withLazyLoadWrapper(<WrittenOffPage />)} />
-            <Route path='/about-us' element={withLazyLoadWrapper(<AboutUsPage />)} />
-            <Route path='/contacts' element={withLazyLoadWrapper(<ContactsPage />)} />
+            <Route index={true} element={withLazyLoadWrapper(<HomePage/>)}/>
+            <Route path='/warehouse' element={withLazyLoadWrapper(<WrittenOffPage/>)}/>
+            <Route path='/about-us' element={withLazyLoadWrapper(<AboutUsPage/>)}/>
+            <Route path='/contacts' element={withLazyLoadWrapper(<ContactsPage/>)}/>
+            <Route path='*' element={<Page404/>}/>
         </Routes>
     )
 }
