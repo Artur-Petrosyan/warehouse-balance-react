@@ -3,12 +3,12 @@ import { useWrittenOffPageModel } from "../model";
 import { WrittenOffPagePureMemo } from "./components";
 
 const WrittenOffController = () => {
-    const {data , openFile} = useWrittenOffPageModel();
+    const {data , openXmlFile} = useWrittenOffPageModel();
     return (
         <>
             <WrittenOffPagePureMemo
                 data={data}
-                openFile={openFile}
+                openXmlFile={openXmlFile}
             />
         </>
     )

@@ -4,12 +4,12 @@ import { Table , Upload } from "core";
 import { getUploadProps } from "core/ui/components/Upload/lib";
 import { withMemo } from "core";
 
-export const WrittenOffPagePure = memo(( {data , openFile} ) => {
+export const WrittenOffPagePure = memo(( {data , openXmlFile} ) => {
         return (
             <div>
                 <Table dataSource={data.XMLData}/>
                 <Upload uploadProps={getUploadProps()}/>
-                <Button onClick={openFile}>Open File</Button>
+                <Button onClick={openXmlFile}>Open File</Button>
             </div>
         );
     }
