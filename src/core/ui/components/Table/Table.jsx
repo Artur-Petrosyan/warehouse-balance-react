@@ -8,6 +8,12 @@ const columns = [
     } ,
     {
         key : '2' ,
+        title : 'Unit' ,
+        dataIndex : "unit" ,
+
+    } ,
+    {
+        key : '3' ,
         title : 'Quantity' ,
         dataIndex : "amount" ,
 
@@ -19,7 +25,7 @@ const columns = [
 
     } ,
     {
-        key : '4' ,
+        key : '3' ,
         title : 'Total Amount' ,
         dataIndex : 'totalPrice' ,
 
