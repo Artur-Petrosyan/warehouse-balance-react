@@ -17,6 +17,7 @@ export const Router = () => {
             <Route path='/warehouse' element={withLazyLoadWrapper(<WrittenOffPage/>)}/>
             <Route path='/about-us' element={withLazyLoadWrapper(<AboutUsPage/>)}/>
             <Route path='/contacts' element={withLazyLoadWrapper(<ContactsPage/>)}/>
+            <Route path='/partners' element={withLazyLoadWrapper(<PartnersPage/>)}/>
             <Route path='*' element={<Page404/>}/>
         </Routes>
     )
