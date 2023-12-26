@@ -8,8 +8,8 @@ import { Page404 } from "pages/Page404";
 const HomePage = lazy(() => import('pages/Home/ui/HomePage'))
 const WrittenOffPage = lazy(() => import('pages/WrittenOff/ui/WrittenOffPage'))
 const AboutUsPage = lazy(() => import('pages/AboutUs/ui/AboutUsPage'))
-const ContactsPage = lazy(() => import('pages/WrittenOff/ui/WrittenOffPage'))
-
+const ContactsPage = lazy(() => import('pages/Contacts/ui/ContactsPage'))
+const PartnersPage = lazy(() => import('pages/Partners/ui/PartnersPage'))
 export const Router = () => {
     return (
         <Routes>
