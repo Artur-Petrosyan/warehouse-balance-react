@@ -3,28 +3,32 @@ import { getXMLDataFromLocalStorage } from "src/core/lib/XMLDataLocalStorage/get
 import { arrayFromHTMLCollection } from "src/core/lib/arrayFromHTMLCollection";
 import { totalAmount } from "src/core/lib/totalAmount";
 
-export const setData = createAsyncThunk('XMLData/setData' , async () => {
-    const XMLData = await getXMLDataFromLocalStorage("Good");
-    const arrayFromXML = await arrayFromHTMLCollection(XMLData);
-    return totalAmount(arrayFromXML);
+export const setXmlData = createAsyncThunk('XMLData/setXmlData' , async () => {
+    try {
+        const XMLData = await getXMLDataFromLocalStorage("Good");
+        const arrayFromXML = await arrayFromHTMLCollection(XMLData);
+        return totalAmount(arrayFromXML);
+    } catch (e) {
+        console.log(e)
+    }
 });
 
 const xmlDataSlice = createSlice({
     name : 'XMLData' ,
     initialState : {
         XMLData : [] ,
-        status : 'idle',
+        status : 'idle' ,
     } ,
     extraReducers : ( builder ) => {
         builder
-            .addCase(setData.pending , ( state ) => {
+            .addCase(setXmlData.pending , ( state ) => {
                 state.status = 'loading';
             })
-            .addCase(setData.fulfilled , ( state , action ) => {
+            .addCase(setXmlData.fulfilled , ( state , action ) => {
                 state.status = 'succeeded';
                 state.XMLData = action.payload;
             })
-            .addCase(setData.rejected , ( state ) => {
+            .addCase(setXmlData.rejected , ( state ) => {
                 state.status = 'failed';
             });
     } ,
