@@ -22,6 +22,7 @@ const items = [
     getItem('Warehouse' , 'Warehouse' , <AccountBookOutlined/>) ,
     getItem('About Us' , 'About Us' , <TeamOutlined/>) ,
     getItem('Contacts' , 'Contacts' , <FileOutlined/>) ,
+    getItem('Partners' , 'Partners' , <TeamOutlined/>) ,
 ];
 const Layout = () => {
     const [collapsed , setCollapsed] = useState(false);
