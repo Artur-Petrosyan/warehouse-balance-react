@@ -10,7 +10,7 @@
  * setExcelDataToLocalStorage(file);
  */
 import * as XLSX from "xlsx";
-import { arrayWithOutFalsy } from "../arrayWithOutFalsy";
+import { removeFalsyValuesFromArray } from "../removeFalsyValuesFromArray";
 import { createObjectFromArray } from "../createObjectFromArray";
 
 export const setExcelDataToLocalStorage = (file) => {
@@ -20,7 +20,7 @@ export const setExcelDataToLocalStorage = (file) => {
         const workbook = XLSX.read(excelData, { type: 'binary' });
         const sheets = workbook.Sheets[workbook.SheetNames[0]];
         const jsonData = XLSX.utils.sheet_to_json(sheets, { header: 1 });
-        const arrayFromJsonData = arrayWithOutFalsy(jsonData);
+        const arrayFromJsonData = removeFalsyValuesFromArray(jsonData);
         localStorage.setItem('excelData', JSON.stringify(createObjectFromArray(arrayFromJsonData)));
     };
     reader.readAsBinaryString(file);
