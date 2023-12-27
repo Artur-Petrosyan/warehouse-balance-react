@@ -9,9 +9,9 @@ export const usePartnersPageModel = () => {
     useEffect(() => {
         dispatch(setExcelData())
     } , [dispatch]);
-
+    const beforeUpload = setExcelDataToLocalStorage
     const openExcelFile = useCallback(() => {
         dispatch(setExcelData())
     } , [dispatch])
-    return {data , openExcelFile};
+    return {data , openExcelFile , beforeUpload};
 }
