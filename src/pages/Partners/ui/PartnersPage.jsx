@@ -4,6 +4,7 @@ import { usePartnersPageModel } from "../model";
 
 const PartnersPage = () => {
     const {data , openExcelFile , beforeUpload} = usePartnersPageModel()
+    /*TODO: create the Search logic for searching Partners  */
     return (
         <PartnersPagePure
             data={data}
