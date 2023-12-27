@@ -1,14 +1,19 @@
 import { createAsyncThunk , createSlice } from '@reduxjs/toolkit';
+import { getExcelDataFromLocalStorage } from "core/lib/ExcelDataLocalStorage";
 
 export const setExcelData = createAsyncThunk('EXCELData/setExcelData' , async () => {
-
+    try {
+        return await getExcelDataFromLocalStorage("excelData")
+    } catch (err) {
+        console.log(err)
+    }
 });
 
 const excelDataSlice = createSlice({
     name : 'EXCELData' ,
     initialState : {
         EXCELData : [] ,
-        status : 'idle',
+        status : 'idle' ,
     } ,
     extraReducers : ( builder ) => {
         builder
