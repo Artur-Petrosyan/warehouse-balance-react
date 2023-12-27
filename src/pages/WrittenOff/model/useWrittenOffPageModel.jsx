@@ -1,6 +1,7 @@
 import { useCallback , useEffect } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { setXmlData } from "app/Providers/store/xmlDataReducer";
+import { setUploadXMLToLocalStorage } from "core/lib/XMLDataLocalStorage/setXMLDataReact";
 
 export const useWrittenOffPageModel = () => {
     const dispatch = useDispatch();
@@ -10,8 +11,9 @@ export const useWrittenOffPageModel = () => {
         dispatch(setXmlData())
     } , [dispatch]);
 
+    const beforeUpload = setUploadXMLToLocalStorage;
     const openXmlFile = useCallback(() => {
         dispatch(setXmlData())
     } , [dispatch])
-    return {data , openXmlFile};
+    return {data , openXmlFile , beforeUpload};
 }

@@ -1,14 +1,13 @@
 import React , { memo } from "react";
 import { Button } from "antd";
 import { Table , Upload } from "core";
-import { getUploadProps } from "core/ui/components/Upload/lib";
 import { withMemo } from "core";
 
-export const WrittenOffPagePure = memo(( {data , openXmlFile} ) => {
+export const WrittenOffPagePure = memo(( {data , openXmlFile , beforeUpload} ) => {
         return (
             <div>
                 <Table dataSource={data.XMLData}/>
-                <Upload uploadProps={getUploadProps()}/>
+                <Upload beforeUpload={beforeUpload}/>
                 <Button onClick={openXmlFile}>Open File</Button>
             </div>
         );
