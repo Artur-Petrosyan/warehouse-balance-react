@@ -14,7 +14,7 @@
  *
  * export default inputSearch;
  */
-import { useEffect, useState } from 'eact';
+import { useEffect, useState } from 'react';
 import { Input } from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { setSearchPartnersData } from "app/Providers/store/searchPartnersDataReducer";
