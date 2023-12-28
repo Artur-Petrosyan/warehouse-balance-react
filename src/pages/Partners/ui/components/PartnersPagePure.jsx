@@ -1,6 +1,6 @@
 import React from 'react';
+import { InputSearch , Table , Upload } from "core";
 import { Button } from "antd";
-import { Table , Upload } from "core";
 
 const columns = [
     {
@@ -12,21 +12,24 @@ const columns = [
         key : '2' ,
         title : 'HVHH' ,
         dataIndex : "HVHH" ,
-
     } ,
     {
         key : '3' ,
         title : 'Address' ,
         dataIndex : "address" ,
-
     } ,
 ];
 
-const PartnersPagePure = ( {openExcelFile , data , beforeUpload} ) => {
+const PartnersPagePure = ( {data , searchData , searchQuery , status , openExcelFile , beforeUpload} ) => {
     return (
         <div>
-            <Table columns={columns} dataSource={data.EXCELData}/>
-            <Upload beforeUpload={beforeUpload}/>
+            <InputSearch/>
+            <Table
+                status={status}
+                columns={columns}
+                dataSource={searchQuery ? searchData : data.EXCELData}
+            />
+            < Upload beforeUpload={beforeUpload}/>
             <Button onClick={openExcelFile}>Open File</Button>
         </div>
     );
