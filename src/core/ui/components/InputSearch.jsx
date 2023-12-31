@@ -46,7 +46,7 @@ export const InputSearch = () => {
         if (searchQuery) {
             const timeOutId = setTimeout(() => {
                 dispatch(setSearchPartnersData({
-                    data: data.EXCELData,
+                    data: data.EXCELData || [],
                     query: removeAllSymbolsFromString(searchQuery),
                 }));
             }, 1000);
