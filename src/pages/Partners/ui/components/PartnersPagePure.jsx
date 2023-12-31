@@ -1,6 +1,7 @@
 import React from 'react';
 import { InputSearch , Table , Upload } from "core";
 import { Button } from "antd";
+import {withMemo} from "core";
 
 const columns = [
     {
@@ -35,4 +36,4 @@ const PartnersPagePure = ( {data , searchData , searchQuery , status , openExcel
     );
 };
 
-export default PartnersPagePure;
+export const PartnersPagePureMemo = withMemo(PartnersPagePure) ;
