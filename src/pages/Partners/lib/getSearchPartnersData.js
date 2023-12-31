@@ -16,8 +16,12 @@
  * console.log(filteredPartnerData); // [{ id: 1, name: 'John Doe' }]
  */
 export const getSearchPartnersData = (data, query) => {
-    const regex = new RegExp(query);
     if (data.length) {
-        return data.filter(item => regex.test(item.name));
+        return data.filter(item => {
+                if (item.name) {
+                    return item.name.toLowerCase().includes(query.toLowerCase())
+                }
+            }
+        );
     }
 };
