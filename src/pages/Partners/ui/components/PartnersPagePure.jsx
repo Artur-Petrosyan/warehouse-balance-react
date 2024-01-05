@@ -24,7 +24,7 @@ const columns = [
 const PartnersPagePure = ( {data , searchData , searchQuery , status , openExcelFile , beforeUpload} ) => {
     return (
         <div>
-            <InputSearch/>
+            <InputSearch placeholderText={"Find Partners"}/>
             <Table
                 status={status}
                 columns={columns}

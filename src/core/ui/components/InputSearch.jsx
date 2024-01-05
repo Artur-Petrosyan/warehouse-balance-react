@@ -1,3 +1,25 @@
+/**
+ * Renders an input search component with the given props.
+ *
+ * @returns {JSX.Element} The rendered input search component.
+ *
+ * @example
+ * import React from 'eact';
+ * import { InputSearch } from './InputSearch';
+ *
+ * const inputSearch = (
+ *   <InputSearch />
+ * );
+ *
+ * export default inputSearch;
+ */
+import {useEffect, useState} from 'react';
+import {Input} from 'antd';
+import {useDispatch, useSelector} from "react-redux";
+import {setSearchPartnersData} from "app/Providers/store/searchPartnersDataReducer";
+import {removeAllSymbolsFromString} from "src/core/lib/removeAllSymbolsFromString";
+
+const {Search} = Input;
 
 /**
  * Renders an input search component with the given props.
@@ -14,30 +36,7 @@
  *
  * export default inputSearch;
  */
-import { useEffect, useState } from 'react';
-import { Input } from 'antd';
-import { useDispatch, useSelector } from "react-redux";
-import { setSearchPartnersData } from "app/Providers/store/searchPartnersDataReducer";
-import { removeAllSymbolsFromString } from "src/core/lib/removeAllSymbolsFromString";
-
-const { Search } = Input;
-
-/**
- * Renders an input search component with the given props.
- *
- * @returns {JSX.Element} The rendered input search component.
- *
- * @example
- * import React from 'eact';
- * import { InputSearch } from './InputSearch';
- *
- * const inputSearch = (
- *   <InputSearch />
- * );
- *
- * export default inputSearch;
- */
-export const InputSearch = () => {
+export const InputSearch = ({placeholderText}) => {
     const dispatch = useDispatch();
     const [searchQuery, setSearchQuery] = useState('');
     const data = useSelector(state => state.EXCELData);
@@ -62,7 +61,7 @@ export const InputSearch = () => {
     return (
         <div className='header__search'>
             <Search
-                placeholder="Find Partners"
+                placeholder={placeholderText}
                 allowClear
                 onChange={e => setSearchQuery(e.target.value)}
                 size="large"
