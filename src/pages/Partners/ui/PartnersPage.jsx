@@ -1,10 +1,18 @@
 import React from 'react';
 import {PartnersPagePureMemo} from "./components";
-import { usePartnersPageModel } from "../model";
+import {usePartnersPageModel} from "../model";
 
 const PartnersPage = () => {
-    const {data , searchData , searchQuery ,status, openExcelFile , beforeUpload} = usePartnersPageModel()
-    /*TODO: create the Search logic for searching Partners  */
+    const {
+        data,
+        searchData,
+        searchQuery,
+        status,
+        openExcelFile,
+        beforeUpload,
+        columns,
+        alertState
+    } = usePartnersPageModel()
     return (
         <PartnersPagePureMemo
             data={data}
@@ -13,6 +21,8 @@ const PartnersPage = () => {
             status={status}
             openExcelFile={openExcelFile}
             beforeUpload={beforeUpload}
+            columns={columns}
+            alertState={alertState}
         />
     );
 };
