@@ -1,4 +1,3 @@
-
 /**
  * Renders a table component using Ant Design.
  * @param {Object} props - The component's props.
@@ -46,17 +45,19 @@
  *   return <Table status="loaded" dataSource={dataSource} columns={columns} />;
  * };
  */
-import { Table as TableAntd } from "antd";
-import { Loader } from "../Loader/Loader";
+import {Table as TableAntd} from "antd";
+import {Loader} from "../Loader/Loader";
+import {memo} from "react";
 
 const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
 };
-
-export const Table = ({ status, dataSource, columns }) => {
-    return status === "loading"? <Loader /> : <TableAntd
+export const Table = memo(({status, dataSource, columns}) => {
+    return status === "loading" ? <Loader/> : <TableAntd
         columns={columns}
         dataSource={dataSource}
         onChange={onChange}
     />
-}
+},(prevProps, nextProps) => {
+   if (prevProps.dataSource !== nextProps.dataSource) return false
+})
