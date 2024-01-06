@@ -10,9 +10,9 @@
  * setExcelDataToLocalStorage(file);
  */
 import * as XLSX from "xlsx";
-import { removeFalsyValuesFromArray } from "../removeFalsyValuesFromArray";
-import { createObjectFromArray } from "../createObjectFromArray";
-
+import {removeFalsyValuesFromArray} from "../removeFalsyValuesFromArray";
+import {createObjectFromArray} from "../createObjectFromArray";
+//TODO: https://www.npmjs.com/package/file-saver
 export const setExcelDataToLocalStorage = (file) => {
     const reader = new FileReader();
     reader.onload = async function (e) {
