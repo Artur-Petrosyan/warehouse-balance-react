@@ -33,15 +33,38 @@
  *
  * export default PartnersPage;
  */
-import { useCallback, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setExcelData } from "app/Providers/store/excelDataReducer";
-import { setExcelDataToLocalStorage } from "core/lib/ExcelDataLocalStorage";
+import React, {useCallback, useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setExcelData} from "app/Providers/store/excelDataReducer";
+import {setExcelDataToLocalStorage} from "core/lib/ExcelDataLocalStorage";
+import {navigateToGoogleMap} from "core/lib/navigateToGoogleMap";
 
 export const usePartnersPageModel = () => {
+    const [alertState, setAlertState] = useState(null)
+    const columns = [
+        {
+            key: '1',
+            title: 'Name',
+            dataIndex: 'name',
+        },
+        {
+            key: '2',
+            title: 'HVHH',
+            dataIndex: "HVHH",
+        },
+        {
+            key: '3',
+            title: 'Address',
+            dataIndex: "address",
+            render: (text) => {
+                return <span style={{cursor: "pointer", color: 'blue'}}
+                             onClick={() => navigateToGoogleMap(text, setAlertState)}>{text}</span>
+            }
+        },
+    ];
     const dispatch = useDispatch();
     /*TODO: Add the logic when the user download not EXCEL file, "ALERT or ERROR" */
-    const data = useSelector(( state ) => state.EXCELData);
+    const data = useSelector((state) => state.EXCELData);
     const filteredData = useSelector(state => state.searchPartnersData)
     const {searchData, searchQuery} = filteredData.searchData;
     const status = filteredData.status
@@ -52,5 +75,5 @@ export const usePartnersPageModel = () => {
     const openExcelFile = useCallback(() => {
         dispatch(setExcelData())
     }, [dispatch])
-    return {data, searchData, searchQuery, status, openExcelFile, beforeUpload};
+    return {data, searchData, searchQuery, status, openExcelFile, beforeUpload, columns, alertState};
 };
