@@ -1,4 +1,4 @@
-import React,  from 'react';
+import React from 'react';
 import {InputSearch, Table, Upload, withMemo} from "core";
 import {Alert, Button} from "antd";
 
