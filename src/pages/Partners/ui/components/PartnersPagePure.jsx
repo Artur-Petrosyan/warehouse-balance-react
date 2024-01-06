@@ -2,23 +2,6 @@ import React,  from 'react';
 import {InputSearch, Table, Upload, withMemo} from "core";
 import {Alert, Button} from "antd";
 
-const columns = [
-    {
-        key : '1' ,
-        title : 'Name' ,
-        dataIndex : 'name' ,
-    } ,
-    {
-        key : '2' ,
-        title : 'HVHH' ,
-        dataIndex : "HVHH" ,
-    } ,
-    {
-        key : '3' ,
-        title : 'Address' ,
-        dataIndex : "address" ,
-    } ,
-];
 
 const PartnersPagePure = ({
          data,
