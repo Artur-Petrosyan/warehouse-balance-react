@@ -1,10 +1,10 @@
 import React from 'react';
+import Iframe from "core/ui/components/Iframe";
 
 const PartnersAddressMapPage = () => {
-    console.log("WORKED")
     return (
         <div>
-         <h1>PartnersAddressMapPage</h1>
+            <Iframe/>
         </div>
     );
 };

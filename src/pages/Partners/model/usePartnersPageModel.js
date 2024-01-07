@@ -10,7 +10,7 @@
  * - `beforeUpload`: A function that sets the Excel data to local storage before uploading it.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import { usePartnersPageModel } from './usePartnersPageModel';
  *
  * const PartnersPage = () => {
