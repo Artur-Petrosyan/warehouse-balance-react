@@ -19,6 +19,11 @@ const xmlDataSlice = createSlice({
         XMLData : [] ,
         status : 'idle' ,
     } ,
+    reducers : {
+        removeXML : ( state ) => {
+            state.XMLData = [];
+        }
+    } ,
     extraReducers : ( builder ) => {
         builder
             .addCase(setXmlData.pending , ( state ) => {
@@ -33,4 +38,5 @@ const xmlDataSlice = createSlice({
             });
     } ,
 });
+export const {removeXML} = xmlDataSlice.actions
 export default xmlDataSlice.reducer;
