@@ -53,6 +53,7 @@ export const WrittenOffPagePure = memo(( {data ,buyerData, openXmlFile , beforeU
                 <Table columns={columns} dataSource={data.XMLData}/>
                 <Upload beforeUpload={beforeUpload}/>
                 <Button onClick={openXmlFile}>Open File</Button>
+                <Table columns={columnsParters} dataSource={buyerData}/>
             </div>
         );
     }
