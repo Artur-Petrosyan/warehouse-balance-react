@@ -50,7 +50,7 @@ const columnsParters = [
 export const WrittenOffPagePure = memo(( {data ,buyerData, openXmlFile , beforeUpload} ) => {
         return (
             <div>
-                <Table columns={columns} dataSource={data.XMLData}/>
+                <Table columns={columnsProduct} dataSource={data.XMLData}/>
                 <Upload beforeUpload={beforeUpload}/>
                 <Button onClick={openXmlFile}>Open File</Button>
                 <Table columns={columnsParters} dataSource={buyerData}/>
