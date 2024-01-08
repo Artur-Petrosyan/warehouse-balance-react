@@ -1,6 +1,7 @@
 import React , { memo } from "react";
 import { Button } from "antd";
 import { Table , Upload , withMemo } from "core";
+import './writtenOfPage.scss';
 
 const columnsProduct = [
     {
@@ -47,12 +48,16 @@ const columnsParters = [
         dataIndex : "price" ,
     } ,
 ]
-export const WrittenOffPagePure = memo(( {data ,buyerData, openXmlFile , beforeUpload} ) => {
+export const WrittenOffPagePure = memo(( {data , buyerData , openXmlFile ,removeXMLData, beforeUpload} ) => {
         return (
             <div>
                 <Table columns={columnsProduct} dataSource={data.XMLData}/>
-                <Upload beforeUpload={beforeUpload}/>
-                <Button onClick={openXmlFile}>Open File</Button>
+                <div className="upload-open__container">
+                    <Upload beforeUpload={beforeUpload}/>
+                    {data.XMLData !== 0 ?
+                        <Button onClick={removeXMLData}>Remove File</Button> :
+                        <Button onClick={openXmlFile}>Open File</Button>}
+                </div>
                 <Table columns={columnsParters} dataSource={buyerData}/>
             </div>
         );
