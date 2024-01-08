@@ -1,8 +1,8 @@
 import React , { memo } from "react";
 import { Button } from "antd";
-import { Table , Upload } from "core";
-import { withMemo } from "core";
-const columns = [
+import { Table , Upload , withMemo } from "core";
+
+const columnsProduct = [
     {
         key : '1' ,
         title : 'Name' ,
@@ -33,7 +33,21 @@ const columns = [
 
     } ,
 ];
-export const WrittenOffPagePure = memo(( {data , openXmlFile , beforeUpload} ) => {
+
+
+const columnsParters = [
+    {
+        key : '4' ,
+        title : 'Name' ,
+        dataIndex : 'name' ,
+    } ,
+    {
+        key : '5' ,
+        title : 'Price' ,
+        dataIndex : "price" ,
+    } ,
+]
+export const WrittenOffPagePure = memo(( {data ,buyerData, openXmlFile , beforeUpload} ) => {
         return (
             <div>
                 <Table columns={columns} dataSource={data.XMLData}/>
