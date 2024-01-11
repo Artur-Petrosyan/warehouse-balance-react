@@ -54,9 +54,7 @@ export const WrittenOffPagePure = memo(( {data , buyerData , openXmlFile ,remove
                 <Table columns={columnsProduct} dataSource={data.XMLData}/>
                 <div className="upload-open__container">
                     <Upload beforeUpload={beforeUpload}/>
-                    {data.XMLData !== 0 ?
-                        <Button onClick={removeXMLData}>Remove File</Button> :
-                        <Button onClick={openXmlFile}>Open File</Button>}
+                        <Button onClick={openXmlFile}>Open File</Button>
                 </div>
                 <Table columns={columnsParters} dataSource={buyerData}/>
             </div>
