@@ -21,6 +21,7 @@ const xmlDataSlice = createSlice({
     } ,
     reducers : {
         removeXML : ( state ) => {
+            localStorage.removeItem('xmlData')
             state.XMLData = [];
         }
     } ,
