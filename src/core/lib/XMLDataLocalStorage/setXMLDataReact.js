@@ -1,4 +1,3 @@
-
 /**
  * Handles the file upload for a file upload component.
  *
@@ -11,15 +10,18 @@
  *   handleUpload(file);
  * };
  */
-export const setUploadXMLToLocalStorage = (file) => {
-    const reader = new FileReader();
-    reader.onload =async function (e) {
-        const xmlData = e.target.result;
-        localStorage.setItem('xmlData', xmlData);
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlData, 'application/xml');
-    };
-    reader.readAsText(file);
-
-    return false;
+export const setUploadXMLToLocalStorage = ( file ) => {
+    if ( file?.type === "text/xml" ) {
+        const reader = new FileReader();
+        reader.onload = async function ( e ) {
+            const xmlData = e.target.result;
+            localStorage.setItem('xmlData' , xmlData);
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlData , 'application/xml');
+        };
+        reader.readAsText(file);
+        return false;
+    } else {
+        return "file type is not xml"
+    }
 };
