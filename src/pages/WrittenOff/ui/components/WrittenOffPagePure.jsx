@@ -1,5 +1,5 @@
 import React , { memo } from "react";
-import { Button } from "antd";
+import { Alert , Button } from "antd";
 import { Table , Upload , withMemo } from "core";
 import './writtenOfPage.scss';
 
@@ -48,9 +48,16 @@ const columnsParters = [
         dataIndex : "price" ,
     } ,
 ]
-export const WrittenOffPagePure = memo(( {data , buyerData , openXmlFile ,removeXMLData, beforeUpload} ) => {
+export const WrittenOffPagePure = memo(( {data , buyerData , openXmlFile , removeXMLData , beforeUpload} ) => {
+    const localXmlData = localStorage.getItem("xmlData")
         return (
             <div>
+                {!data.XMLData ? <Alert
+                    message="Warning"
+                    description="File type is not xml"
+                    type="warning"
+                    showIcon
+                /> : null}
                 <Table columns={columnsProduct} dataSource={data.XMLData}/>
                 <div className="upload-open__container">
                     <Upload beforeUpload={beforeUpload}/>
