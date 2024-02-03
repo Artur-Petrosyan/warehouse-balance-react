@@ -50,7 +50,6 @@ import {Loader} from "../Loader/Loader";
 import {memo} from "react";
 
 const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
 };
 export const Table = memo(({status, dataSource, columns}) => {
     return status === "loading" ? <Loader/> : <TableAntd
