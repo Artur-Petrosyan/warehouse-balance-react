@@ -1,0 +1,1 @@
+export { useProductListPageModel } from "./useProductListModel";
