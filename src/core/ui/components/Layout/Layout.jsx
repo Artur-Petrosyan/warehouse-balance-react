@@ -1,5 +1,11 @@
 import React , { useState } from 'react';
-import { AccountBookOutlined , FileOutlined , HomeFilled , TeamOutlined } from '@ant-design/icons';
+import {
+    AccountBookOutlined ,
+    FileOutlined ,
+    HomeFilled ,
+    TeamOutlined ,
+    UnorderedListOutlined
+} from '@ant-design/icons';
 import { Layout as LayoutAntd , Menu } from 'antd';
 import { RouterMemo } from "src/app/Providers/routes";
 import { useNavigation } from "core/hooks/useNavigation";
@@ -23,6 +29,7 @@ const items = [
     getItem('About Us' , 'About Us' , <TeamOutlined/>) ,
     getItem('Contacts' , 'Contacts' , <FileOutlined/>) ,
     getItem('Partners' , 'Partners' , <TeamOutlined/>) ,
+    getItem('Product list' ,"Product-List",<UnorderedListOutlined />)
 ];
 const Layout = () => {
     const [collapsed , setCollapsed] = useState(false);
