@@ -1,9 +1,11 @@
 import { createAsyncThunk , createSlice } from '@reduxjs/toolkit';
 import { getXMLDataFromLocalStorage } from "core/lib/XMLDataLocalStorage/getXMLDataFromLocalStorage";
-import { arrayFromHTMLCollectionPartnersNameAndPrice } from "core/lib/arrayFromHTMLCollectionPartnersNameAndPrice";
+import {
+    arrayFromHTMLCollectionPartnersNameAndPrice
+} from "core/lib/arrayFromHTMLCollectionPartnersNameAndPrice";
 import { joinArrays } from "core/lib/joinArrays";
 
-export const setBuyerAndPriceData = createAsyncThunk('buyerData/setBuyerAndPriceData' , async () => {
+export const asyncSetBuyerAndPriceData = createAsyncThunk('buyerData/asyncSetBuyerAndPriceData' , async () => {
     try {
         const XMLDataBuyer = await getXMLDataFromLocalStorage("BuyerInfo");
         const buyerTotalPrice = await getXMLDataFromLocalStorage("Total")
@@ -21,18 +23,27 @@ const buyerAndPriceSlice = createSlice({
         partnersAndPriceData : [] ,
         status : 'idle' ,
     } ,
+    reducers : {
+        removeBuyerAndPriceData : ( state ) => {
+            state.partnersAndPriceData = []
+        } ,
+        setBuyerAndPriceData : ( state , action ) => {
+            state.partnersAndPriceData = action.payload;
+        } ,
+    } ,
     extraReducers : ( builder ) => {
         builder
-            .addCase(setBuyerAndPriceData.pending , ( state ) => {
+            .addCase(asyncSetBuyerAndPriceData.pending , ( state ) => {
                 state.status = 'loading';
             })
-            .addCase(setBuyerAndPriceData.fulfilled , ( state , action ) => {
+            .addCase(asyncSetBuyerAndPriceData.fulfilled , ( state , action ) => {
                 state.status = 'succeeded';
                 state.partnersAndPriceData = action.payload;
             })
-            .addCase(setBuyerAndPriceData.rejected , ( state ) => {
+            .addCase(asyncSetBuyerAndPriceData.rejected , ( state ) => {
                 state.partnersAndPriceData = 'failed';
             });
     } ,
 });
 export default buyerAndPriceSlice.reducer;
+export const {removeBuyerAndPriceData , setBuyerAndPriceData} = buyerAndPriceSlice.actions
