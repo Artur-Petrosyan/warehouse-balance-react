@@ -21,10 +21,5 @@ export const useWrittenOffPageModel = () => {
 
     const beforeUpload = setUploadXMLToLocalStorage;
 
-    const openXmlFile = useCallback(() => {
-        dispatch(setXmlData())
-        dispatch(setBuyerAndPriceData())
-    } , [dispatch])
-
     return {data , buyerData , openXmlFile , removeXMLData , beforeUpload};
 }
