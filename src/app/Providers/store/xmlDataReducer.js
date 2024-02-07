@@ -3,7 +3,7 @@ import { getXMLDataFromLocalStorage } from "src/core/lib/XMLDataLocalStorage/get
 import { arrayFromHTMLCollection } from "src/core/lib/arrayFromHTMLCollection";
 import { totalAmount } from "src/core/lib/totalAmount";
 
-export const setXmlData = createAsyncThunk('XMLData/setXmlData' , async () => {
+export const asyncSetXmlData = createAsyncThunk('XMLData/asyncSetXmlData' , async () => {
     try {
         const XMLData = await getXMLDataFromLocalStorage("Good");
         const arrayFromXML = await arrayFromHTMLCollection(XMLData);
@@ -27,14 +27,14 @@ const xmlDataSlice = createSlice({
     } ,
     extraReducers : ( builder ) => {
         builder
-            .addCase(setXmlData.pending , ( state ) => {
+            .addCase(asyncSetXmlData.pending , ( state ) => {
                 state.status = 'loading';
             })
-            .addCase(setXmlData.fulfilled , ( state , action ) => {
+            .addCase(asyncSetXmlData.fulfilled , ( state , action ) => {
                 state.status = 'succeeded';
                 state.XMLData = action.payload;
             })
-            .addCase(setXmlData.rejected , ( state ) => {
+            .addCase(asyncSetXmlData.rejected , ( state ) => {
                 state.status = 'failed';
             });
     } ,
