@@ -12,7 +12,8 @@ module.exports = {
             pages : resolvePath('./src/pages'),
             features: resolvePath('./src/features'),
             widgets: resolvePath('./src/widgets'),
-            entities: resolvePath('./src/entities')
+            entities: resolvePath('./src/entities'),
+            store: resolvePath('./src/Providers/store')
         }
     }
 }
