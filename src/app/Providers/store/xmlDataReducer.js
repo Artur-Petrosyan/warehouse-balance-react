@@ -20,10 +20,13 @@ const xmlDataSlice = createSlice({
         status : 'idle' ,
     } ,
     reducers : {
+        setXmlData : ( state , action ) => {
+            state.XMLData = action.payload
+        } ,
         removeXML : ( state ) => {
             localStorage.removeItem('xmlData')
             state.XMLData = [];
-        }
+        } ,
     } ,
     extraReducers : ( builder ) => {
         builder
@@ -39,5 +42,5 @@ const xmlDataSlice = createSlice({
             });
     } ,
 });
-export const {removeXML} = xmlDataSlice.actions
+export const {removeXML , setXmlData} = xmlDataSlice.actions
 export default xmlDataSlice.reducer;
