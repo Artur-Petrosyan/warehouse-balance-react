@@ -48,8 +48,8 @@ const columnsParters = [
         dataIndex : "price" ,
     } ,
 ]
-export const WrittenOffPagePure = memo(( {data , buyerData , openXmlFile , removeXMLData , beforeUpload} ) => {
-    const localXmlData = localStorage.getItem("xmlData")
+export const WrittenOffPagePure = memo(( {data , buyerData , removeXMLData , beforeUpload} ) => {
+        const {XMLData} = data
         return (
             <div>
                 {!data.XMLData ? <Alert
@@ -58,11 +58,10 @@ export const WrittenOffPagePure = memo(( {data , buyerData , openXmlFile , remov
                     type="warning"
                     showIcon
                 /> : null}
-                <Table columns={columnsProduct} dataSource={data.XMLData}/>
+                <Table columns={columnsProduct} dataSource={XMLData}/>
                 <div className="upload-open__container">
                     <Upload beforeUpload={beforeUpload}/>
-                    {!localXmlData ? <Button onClick={openXmlFile}>Open File</Button> :
-                        <Button onClick={removeXMLData}>Remove File</Button>}
+                    {XMLData?.length ? <Button onClick={removeXMLData}>Remove File</Button> : <></>}
                 </div>
                 <Table columns={columnsParters} dataSource={buyerData}/>
             </div>

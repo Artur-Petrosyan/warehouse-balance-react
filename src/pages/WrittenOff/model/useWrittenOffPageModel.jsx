@@ -2,8 +2,7 @@ import { useCallback , useEffect } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { asyncSetXmlData , removeXML } from "app/Providers/store/xmlDataReducer";
 import { setUploadXMLToLocalStorage } from "core/lib/XMLDataLocalStorage/setXMLDataReact";
-import { asyncSetBuyerAndPriceData } from "app/Providers/store/buyerAndPriceReducer";
-import { removeBuyerAndPriceData } from "app/Providers/store/buyerAndPriceReducer";
+import { asyncSetBuyerAndPriceData , removeBuyerAndPriceData } from "app/Providers/store/buyerAndPriceReducer";
 
 export const useWrittenOffPageModel = () => {
     const dispatch = useDispatch();
@@ -21,5 +20,5 @@ export const useWrittenOffPageModel = () => {
 
     const beforeUpload = setUploadXMLToLocalStorage;
 
-    return {data , buyerData , openXmlFile , removeXMLData , beforeUpload};
+    return {data , buyerData , removeXMLData , beforeUpload};
 }
