@@ -1,9 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch , useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setExcelProductListData } from "app/Providers/store/productListReducer";
+import { removeProductListData , setExcelProductListData } from "app/Providers/store/productListReducer";
 import {
     setExcelProductListDataToLocalStorage
 } from "core/lib/ExcelDataLocalStorage/setExcelProductListDataToLocalStorage";
+import { removeDataFromLocalStorage } from "core/lib/localStorageRemoveData";
 
 export const useProductListPageModel = () => {
     const dispatch = useDispatch()
@@ -11,9 +12,10 @@ export const useProductListPageModel = () => {
     const beforeUpload = setExcelProductListDataToLocalStorage
     useEffect(() => {
         dispatch(setExcelProductListData())
-    }, [dispatch]);
-    const updateData = () => {
-        dispatch(setExcelProductListData());
+    } , [dispatch]);
+    const removeData = (dataRemoveName) => {
+        dispatch(removeProductListData());
+        removeDataFromLocalStorage(dataRemoveName)
     };
-    return {data, beforeUpload, updateData};
+    return {data , beforeUpload , removeData};
 };
