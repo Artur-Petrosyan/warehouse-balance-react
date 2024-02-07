@@ -30,12 +30,14 @@ const columnsProductList = [
         dataIndex : 'notNDS' ,
     } ,
 ];
-export const ProductListPagePure = ( {data , beforeUpload , updateData} ) => {
+export const ProductListPagePure = ( {data , beforeUpload , removeData} ) => {
+    const {EXCELProductListData} = data;
     return <div>
-        <Table columns={columnsProductList} dataSource={data.EXCELProductListData}/>
+        <Table columns={columnsProductList} dataSource={EXCELProductListData}/>
         <div className="upload-open__container">
             <Upload beforeUpload={beforeUpload}/>
-            <Button onClick={updateData}>Open File</Button>
+            {EXCELProductListData.length  ?
+                <Button onClick={() => removeData('excelProductListData')}>Remove File</Button> : <></>}
         </div>
     </div>
 }
