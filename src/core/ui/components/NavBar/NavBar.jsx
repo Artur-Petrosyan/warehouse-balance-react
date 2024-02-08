@@ -7,7 +7,7 @@
  * @returns {JSX.Element} The rendered navigation bar component.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import { NavBar } from './NavBar';
  *
  * const navList = [
@@ -22,8 +22,8 @@
  *
  * export default navBar;
  */
-import {useNavigation} from "core/hooks/useNavigation";
-import {NavLink} from "react-router-dom";
+import { useNavigation } from "core/hooks/useNavigation";
+import { NavLink } from "react-router-dom";
 import 'core/ui/components/Header/header.scss'
 
 export const NavBar = ({navList, subMenu}) => {

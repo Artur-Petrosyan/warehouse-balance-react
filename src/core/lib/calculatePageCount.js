@@ -20,4 +20,4 @@
  * console.log(pageCount);
  * // Output: 2
  */
-export const calculatePageCount = (result, itemsPerPage) => Math.ceil(result.length / itemsPerPage);
+export const calculatePageCount = ( result , itemsPerPage ) => Math.ceil(result.length / itemsPerPage);

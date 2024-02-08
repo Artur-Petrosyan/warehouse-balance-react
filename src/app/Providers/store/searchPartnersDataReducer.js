@@ -5,7 +5,7 @@ export const setSearchPartnersData = createAsyncThunk(
         'searchData/setSearchPartnersData' ,
         async ( {data , query} ) => {
             try {
-                return {searchData: getSearchPartnersData(data, query), searchQuery: query};
+                return {searchData : getSearchPartnersData(data , query) , searchQuery : query};
             } catch (err) {
                 console.log(err)
             }

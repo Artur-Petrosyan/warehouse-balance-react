@@ -1,11 +1,11 @@
-import {useEffect, useState} from "react";
+import { useState } from "react";
 
 const Iframe = ({encodedURL}) => {
     const [geocode, setGeocode] = useState([{
         lon: "",
         lat: "",
     }])
-    var requestOptions = {
+    let requestOptions = {
         method: 'GET',
     };
    const address = encodeURI('ք․Երևան 20 իսակովի պողոտա ')

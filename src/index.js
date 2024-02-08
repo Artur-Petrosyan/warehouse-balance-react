@@ -9,7 +9,7 @@ import { withStore } from "./app/Providers/store/withStore";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
-        {withStore(<App />)}
+        {withStore(<App/>)}
     </BrowserRouter>
 );
 

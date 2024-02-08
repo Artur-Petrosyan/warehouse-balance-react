@@ -7,10 +7,11 @@
  * @param {string} path - The current path of the application.
  * @returns {function} The modified navigate function.
  */
-import {navigateToRegex} from "./navigateToRegex";
-export const navigateWithRegex = (id, name, navigate, path) => {
+import { navigateToRegex } from "./navigateToRegex";
+
+export const navigateWithRegex = ( id , name , navigate , path ) => {
     const newName = navigateToRegex(name)
-    if (path === '/search') {
+    if ( path === '/search' ) {
         return navigate(`/shows/1/${id}/${newName}/main`)
     }
     return navigate(`${id}/${newName}/main`)

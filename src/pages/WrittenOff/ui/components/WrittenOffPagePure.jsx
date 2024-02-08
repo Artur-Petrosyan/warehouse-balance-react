@@ -36,7 +36,7 @@ const columnsProduct = [
 ];
 
 
-const columnsParters = [
+const columnsPartners = [
     {
         key : '4' ,
         title : 'Name' ,
@@ -63,7 +63,7 @@ export const WrittenOffPagePure = memo(( {data , buyerData , removeXMLData , bef
                     <Upload beforeUpload={beforeUpload}/>
                     {XMLData?.length ? <Button onClick={removeXMLData}>Remove File</Button> : <></>}
                 </div>
-                <Table columns={columnsParters} dataSource={buyerData}/>
+                <Table columns={columnsPartners} dataSource={buyerData}/>
             </div>
         );
     }

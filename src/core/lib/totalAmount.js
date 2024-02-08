@@ -23,21 +23,21 @@
  */
 import { similarityObjectsByName } from "./similarityObjectsByName";
 
-export const totalAmount = data => data.reduce((acc, obj) => {
-    const existingObj = similarityObjectsByName(acc, obj);
-    if (existingObj) {
+export const totalAmount = data => data.reduce(( acc , obj ) => {
+    const existingObj = similarityObjectsByName(acc , obj);
+    if ( existingObj ) {
         existingObj.amount += obj.amount;
         existingObj.notNDS += obj.notNDS;
         existingObj.totalPrice += obj.totalPrice;
     } else {
         acc.push({
-            key: obj.key,
-            name: obj.name,
-            unit:obj.unit,
-            amount: obj.amount,
-            notNDS: obj.notNDS,
-            totalPrice: obj.totalPrice,
+            key : obj.key ,
+            name : obj.name ,
+            unit : obj.unit ,
+            amount : obj.amount ,
+            notNDS : obj.notNDS ,
+            totalPrice : obj.totalPrice ,
         });
     }
     return acc;
-}, []);
+} , []);

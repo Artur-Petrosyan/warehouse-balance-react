@@ -15,10 +15,10 @@
  * const filteredPartnerData = getSearchPartnersData(partnerData, 'Doe');
  * console.log(filteredPartnerData); // [{ id: 1, name: 'John Doe' }]
  */
-export const getSearchPartnersData = (data, query) => {
-    if (data.length) {
+export const getSearchPartnersData = ( data , query ) => {
+    if ( data.length ) {
         return data.filter(item => {
-                if (item.name) {
+            if ( item.name ) {
                     return item.name.toLowerCase().includes(query.toLowerCase())
                 }
             }

@@ -4,7 +4,7 @@
  * @returns {JSX.Element} The rendered input search component.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import { InputSearch } from './InputSearch';
  *
  * const inputSearch = (
@@ -13,11 +13,11 @@
  *
  * export default inputSearch;
  */
-import {useEffect, useState} from 'react';
-import {Input} from 'antd';
-import {useDispatch, useSelector} from "react-redux";
-import {setSearchPartnersData} from "app/Providers/store/searchPartnersDataReducer";
-import {removeAllSymbolsFromString} from "src/core/lib/removeAllSymbolsFromString";
+import { useEffect , useState } from 'react';
+import { Input } from 'antd';
+import { useDispatch , useSelector } from "react-redux";
+import { setSearchPartnersData } from "app/Providers/store/searchPartnersDataReducer";
+import { removeAllSymbolsFromString } from "src/core/lib/removeAllSymbolsFromString";
 
 const {Search} = Input;
 
@@ -27,7 +27,7 @@ const {Search} = Input;
  * @returns {JSX.Element} The rendered input search component.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import { InputSearch } from './InputSearch';
  *
  * const inputSearch = (

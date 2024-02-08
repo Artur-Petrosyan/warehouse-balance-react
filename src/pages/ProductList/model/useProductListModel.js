@@ -13,7 +13,7 @@ export const useProductListPageModel = () => {
     useEffect(() => {
         dispatch(setExcelProductListData())
     } , [dispatch]);
-    const removeData = (dataRemoveName) => {
+    const removeData = ( dataRemoveName ) => {
         dispatch(removeProductListData());
         removeDataFromLocalStorage(dataRemoveName)
     };

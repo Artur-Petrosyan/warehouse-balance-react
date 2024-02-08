@@ -30,6 +30,7 @@
 import { Button , Upload as UploadAntd } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { getUploadProps } from "./lib";
+
 export const Upload = ( {beforeUpload}) => {
     const uploadProps = getUploadProps(beforeUpload)
     return (

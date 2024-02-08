@@ -9,7 +9,7 @@
  * @returns {JSX.Element} The rendered button component.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import { Button } from './Button';
  *
  * const primaryButton = (

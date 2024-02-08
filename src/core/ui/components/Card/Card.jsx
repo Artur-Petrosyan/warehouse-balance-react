@@ -2,9 +2,9 @@ import React from 'react';
 import CardAnt from 'antd/es/card/Card';
 import 'src/core/ui/components/Card/card.scss'
 import Meta from 'antd/es/card/Meta';
-import {HeartOutlined, StarOutlined} from '@ant-design/icons'
-import {useGetLocationPathName} from "src/core/lib/useGetLocationPathName";
-import {navigateWithRegex} from "src/core/lib/navigateWithRegex";
+import { HeartOutlined , StarOutlined } from '@ant-design/icons'
+import { useGetLocationPathName } from "src/core/lib/useGetLocationPathName";
+import { navigateWithRegex } from "src/core/lib/navigateWithRegex";
 
 /**
  * Renders a card component with the given props.
@@ -17,7 +17,7 @@ import {navigateWithRegex} from "src/core/lib/navigateWithRegex";
  * @returns {JSX.Element} The rendered card component.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import { Card } from './Card';
  *
  * const card = (

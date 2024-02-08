@@ -3,7 +3,7 @@
  * @param {Array} data - The array of data to be paginated.
  * @returns {Array} - An array of numbers representing the pages.
  */
-export function getPagesForPagination(data) {
+export function getPagesForPagination( data ) {
     let numOfPages = []
     let pages = Math.ceil(data.length / 25)
     for (let i = 1; i <= pages; i++) {

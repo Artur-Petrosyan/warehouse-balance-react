@@ -1,11 +1,10 @@
-
 /**
  * Renders a header component with a navigation bar, input search, and a button.
  *
  * @returns {JSX.Element} The rendered header component.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import Header from './Header';
  *
  * export default function App() {
@@ -17,11 +16,11 @@
  *   );
  * }
  */
-import {InputSearch} from 'src/core/ui/components';
+import { InputSearch } from 'src/core/ui/components';
 
-import {Button} from '../Button';
+import { Button } from '../Button';
 
-import {NavBar} from '../NavBar/NavBar';
+import { NavBar } from '../NavBar/NavBar';
 
 import 'src/core/ui/components/Header/header.scss'
 

@@ -1,5 +1,5 @@
-import {Suspense} from "react";
-import {Loader} from "../ui/components";
+import { Suspense } from "react";
+import { Loader } from "../ui/components";
 
 export const withLazyLoadWrapper = ( children) => {
     return (

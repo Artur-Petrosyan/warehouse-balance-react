@@ -15,15 +15,15 @@
  */
 
 export const useNavigation = () => {
-    return (path) => {
+    return ( path ) => {
         const lowerPath = path.toLowerCase()
-        if (lowerPath === 'home') {
+        if ( lowerPath === 'home' ) {
             return '/'
         }
-        if (lowerPath === 'warehouse') {
+        if ( lowerPath === 'warehouse' ) {
             return `warehouse`
         }
-        if (lowerPath === 'about us') {
+        if ( lowerPath === 'about us' ) {
             return 'about-us'
         }
         return lowerPath

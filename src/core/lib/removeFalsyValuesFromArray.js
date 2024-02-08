@@ -10,4 +10,4 @@
  * const filteredData = arrayWithOutFalsy(data);
  * console.log(filteredData); // Output: [1, true, "hello"]
  */
-export const removeFalsyValuesFromArray = (data) => data.map(item => item.filter(Boolean));
+export const removeFalsyValuesFromArray = ( data ) => data.map(item => item.filter(Boolean));

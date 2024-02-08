@@ -2,7 +2,7 @@ import { getXMLDataFromLocalStorage } from "./getXMLDataFromLocalStorage";
 import { arrayFromHTMLCollection } from "../arrayFromHTMLCollection";
 import { store } from "app/Providers/store/withStore";
 import { setXmlData } from "app/Providers/store/xmlDataReducer";
-import { asyncSetBuyerAndPriceData , setBuyerAndPriceData } from "app/Providers/store/buyerAndPriceReducer";
+import { asyncSetBuyerAndPriceData } from "app/Providers/store/buyerAndPriceReducer";
 
 /**
  * Handles the file upload for a file upload component.
@@ -25,7 +25,7 @@ export const setUploadXMLToLocalStorage = ( file ) => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlData , 'application/xml');
             const XMLData = await getXMLDataFromLocalStorage("Good");
-            const arrayFromXML = await arrayFromHTMLCollection(XMLData);
+            const arrayFromXML =  arrayFromHTMLCollection(XMLData);
             store.dispatch(setXmlData(arrayFromXML))
             store.dispatch(asyncSetBuyerAndPriceData())
         };

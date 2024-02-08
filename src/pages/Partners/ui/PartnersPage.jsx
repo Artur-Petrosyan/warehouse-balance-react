@@ -1,6 +1,6 @@
 import React from 'react';
-import {PartnersPagePureMemo} from "./components";
-import {usePartnersPageModel} from "../model";
+import { PartnersPagePureMemo } from "./components";
+import { usePartnersPageModel } from "../model";
 
 const PartnersPage = () => {
     const {

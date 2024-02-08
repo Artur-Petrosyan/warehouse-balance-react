@@ -45,9 +45,9 @@
  *   return <Table status="loaded" dataSource={dataSource} columns={columns} />;
  * };
  */
-import {Table as TableAntd} from "antd";
-import {Loader} from "../Loader/Loader";
-import {memo} from "react";
+import { Table as TableAntd } from "antd";
+import { Loader } from "../Loader/Loader";
+import { memo } from "react";
 
 const onChange = (pagination, filters, sorter, extra) => {
 };

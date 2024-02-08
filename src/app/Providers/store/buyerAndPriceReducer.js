@@ -1,16 +1,14 @@
 import { createAsyncThunk , createSlice } from '@reduxjs/toolkit';
 import { getXMLDataFromLocalStorage } from "core/lib/XMLDataLocalStorage/getXMLDataFromLocalStorage";
-import {
-    arrayFromHTMLCollectionPartnersNameAndPrice
-} from "core/lib/arrayFromHTMLCollectionPartnersNameAndPrice";
+import { arrayFromHTMLCollectionPartnersNameAndPrice } from "core/lib/arrayFromHTMLCollectionPartnersNameAndPrice";
 import { joinArrays } from "core/lib/joinArrays";
 
 export const asyncSetBuyerAndPriceData = createAsyncThunk('buyerData/asyncSetBuyerAndPriceData' , async () => {
     try {
         const XMLDataBuyer = await getXMLDataFromLocalStorage("BuyerInfo");
         const buyerTotalPrice = await getXMLDataFromLocalStorage("Total")
-        const buyerTotal = await arrayFromHTMLCollectionPartnersNameAndPrice(buyerTotalPrice , 'TotalPrice')
-        const buyerName = await arrayFromHTMLCollectionPartnersNameAndPrice(XMLDataBuyer , 'Taxpayer' , 'Name')
+        const buyerTotal = arrayFromHTMLCollectionPartnersNameAndPrice(buyerTotalPrice , 'TotalPrice')
+        const buyerName =  arrayFromHTMLCollectionPartnersNameAndPrice(XMLDataBuyer , 'Taxpayer' , 'Name')
         return joinArrays(buyerName , buyerTotal)
     } catch (err) {
         console.log(err)

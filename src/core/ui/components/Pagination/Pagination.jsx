@@ -9,7 +9,7 @@
  * @returns {JSX.Element} The rendered pagination component.
  *
  * @example
- * import React from 'eact';
+ * import React from 'react';
  * import { Pagination } from './Pagination';
  *
  * const data = [
@@ -46,8 +46,8 @@
  *
  * export default pagination;
  */
-import {memo} from "react";
-import {useNavigate} from "react-router-dom";
+import { memo } from "react";
+import { useNavigate } from "react-router-dom";
 import PaginationAnt from "antd/es/pagination";
 import 'src/core/ui/components/Pagination/pagination.scss'
 

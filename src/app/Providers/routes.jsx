@@ -1,9 +1,9 @@
-import {Route, Routes} from "react-router-dom";
+import { Route , Routes } from "react-router-dom";
 
-import React, {lazy} from "react";
-import {withLazyLoadWrapper} from "core/hoc/withLazyLoadWrapper";
-import {withMemo} from "core";
-import {Page404} from "pages/Page404";
+import React , { lazy } from "react";
+import { withLazyLoadWrapper } from "core/hoc/withLazyLoadWrapper";
+import { withMemo } from "core";
+import { Page404 } from "pages/Page404";
 import HomePage from "src/pages/Home/ui/HomePage";
 
 const WrittenOffPage = lazy(() => import('pages/WrittenOff/ui/WrittenOffPage'))
