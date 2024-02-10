@@ -56,25 +56,45 @@ export const ProductListPagePure = ({
                     <Form.Item
                         label="code"
                         name="code"
-                        required={true}>
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please enter the code"
+                            }
+                        ]}>
                         <Input/>
                     </Form.Item>
                     <Form.Item
                         label="name"
                         name="name"
-                        required={true}>
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please enter the name"
+                            }
+                        ]}>
                         <Input/>
                     </Form.Item>
                     <Form.Item
                         label="price"
                         name="price"
-                        required={true}>
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please enter the price"
+                            }
+                        ]}>
                         <Input/>
                     </Form.Item>
                     <Form.Item
                         label="price without NDS"
                         name="price without NDS"
-                        required={true}>
+                        rules={[
+                            {
+                                required: true,
+                                message: "Please enter the price without NDS"
+                            }
+                        ]}>
                         <Input/>
                     </Form.Item>
 
