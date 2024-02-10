@@ -1,4 +1,4 @@
-import { useCallback , useEffect } from "react";
+import { useCallback , useEffect , useMemo } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { asyncSetXmlData , removeXML } from "app/Providers/store/xmlDataReducer";
 import { setUploadXMLToLocalStorage } from "core/lib/XMLDataLocalStorage/setXMLDataReact";
@@ -18,7 +18,6 @@ export const useWrittenOffPageModel = () => {
         dispatch(removeBuyerAndPriceData())
     } , [dispatch])
 
-    const beforeUpload = setUploadXMLToLocalStorage;
-
+    const beforeUpload = useMemo(() => setUploadXMLToLocalStorage , []);
     return {data , buyerData , removeXMLData , beforeUpload};
 }

@@ -33,7 +33,7 @@
  *
  * export default PartnersPage;
  */
-import React , { useCallback , useEffect , useState } from "react";
+import React , { useCallback , useEffect , useMemo , useState } from "react";
 import { useDispatch , useSelector } from "react-redux";
 import { setExcelData } from "app/Providers/store/excelDataReducer";
 import { setExcelDataToLocalStorage } from "core/lib/ExcelDataLocalStorage";
@@ -71,7 +71,7 @@ export const usePartnersPageModel = () => {
     useEffect(() => {
         dispatch(setExcelData())
     } , [dispatch]);
-    const beforeUpload = setExcelDataToLocalStorage
+    const beforeUpload = useMemo(() => setExcelDataToLocalStorage,[])
     const openExcelFile = useCallback(() => {
         dispatch(setExcelData())
     } , [dispatch])
