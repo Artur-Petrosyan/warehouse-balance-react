@@ -22,7 +22,7 @@ export const createObjectFromProductListArray = ( array ) => {
             name : String(item[1]).trim() ,
             unit : item[2] ? item[2] : "unknown" ,
             price : item[3] ,
-            notNDS : item[4].toFixed(2)
+            notNDS : item[4]?.toFixed(2)
         }
     })
 }
