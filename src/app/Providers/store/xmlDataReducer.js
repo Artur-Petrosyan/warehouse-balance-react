@@ -6,8 +6,8 @@ import { totalAmount } from "src/core/lib/totalAmount";
 export const asyncSetXmlData = createAsyncThunk('XMLData/asyncSetXmlData' , async () => {
     try {
         const XMLData = await getXMLDataFromLocalStorage("Good");
-        const arrayFromXML = arrayFromHTMLCollection(XMLData);
-        return totalAmount(arrayFromXML);
+        const arrayFromXML = await arrayFromHTMLCollection(XMLData);
+        return  totalAmount(arrayFromXML);
     } catch (e) {
         console.log(e)
     }
