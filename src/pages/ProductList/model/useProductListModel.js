@@ -6,6 +6,7 @@ import {
 } from "core/lib/ExcelDataLocalStorage/setExcelProductListDataToLocalStorage";
 import {removeDataFromLocalStorage} from "core/lib/localStorageRemoveData";
 import {addNewProduct} from "app/Providers/store/productListReducer";
+import {v4} from "uuid";
 
 export const useProductListPageModel = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -19,8 +20,11 @@ export const useProductListPageModel = () => {
     const showModal = () => {
         setIsModalOpen(true);
     };
-    const handleOk = () => {
+    const handleOk = (form) => {
+        const fieldsValues = form.getFieldsValue(["code", "name", "price", "unit", "notNDS"])
         setIsModalOpen(false);
+        fieldsValues.key = v4()
+        addProduct(fieldsValues)
     };
     const handleCancel = () => {
         setIsModalOpen(false);
@@ -33,5 +37,5 @@ export const useProductListPageModel = () => {
         dispatch(removeProductListData());
         removeDataFromLocalStorage(dataRemoveName)
     };
-    return {data, beforeUpload, removeData, addProduct,isModalOpen, showModal,handleOk, handleCancel};
+    return {data, beforeUpload, removeData, addProduct, isModalOpen, showModal, handleOk, handleCancel};
 };

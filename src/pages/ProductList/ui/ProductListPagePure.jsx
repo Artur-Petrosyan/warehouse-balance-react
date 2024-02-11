@@ -35,13 +35,14 @@ export const ProductListPagePure = ({
                                         data,
                                         beforeUpload,
                                         removeData,
-                                        addProduct,
                                         isModalOpen,
-                                        showModal,
                                         handleOk,
+                                        showModal,
                                         handleCancel
                                     }) => {
     const {EXCELProductListData} = data;
+    const [form] = Form.useForm()
+
     return <div>
         <Table columns={columnsProductList} dataSource={EXCELProductListData}/>
         <div className="upload-open__container">
@@ -49,10 +50,12 @@ export const ProductListPagePure = ({
             <Modal
                 open={isModalOpen}
                 onCancel={handleCancel}
-                onOk={handleOk}
+                onOk={() => handleOk(form)}
                 title="Add a new product"
             >
-                <Form>
+                <Form
+                    form={form}
+                >
                     <Form.Item
                         label="code"
                         name="code"
@@ -76,28 +79,50 @@ export const ProductListPagePure = ({
                         <Input/>
                     </Form.Item>
                     <Form.Item
-                        label="price"
-                        name="price"
+                        label="unit"
+                        name="unit"
                         rules={[
                             {
                                 required: true,
-                                message: "Please enter the price"
+                                message: "Please enter the unit",
                             }
                         ]}>
                         <Input/>
                     </Form.Item>
                     <Form.Item
-                        label="price without NDS"
-                        name="price without NDS"
+                        label="price"
+                        name="price"
                         rules={[
                             {
                                 required: true,
-                                message: "Please enter the price without NDS"
-                            }
+                                message: "This field is required",
+                            },
+                            () => ({
+                                validator(_, value) {
+                                    const pattern = /^\d+$/
+                                    if (value && !pattern.test(value)) {
+                                        return Promise.reject(new Error("Must be a number"))
+                                    }
+                                    return Promise.resolve()
+                                }
+                            })
                         ]}>
                         <Input/>
                     </Form.Item>
+                    <Form.Item
+                        label="price without NDS"
+                        name="notNDS"
+                        rules={[
+                            {
+                                type: "number",
+                                required: true,
+                                message: "Please enter the price without NDS",
 
+                            },
+                        ]}
+                    >
+                        <Input/>
+                    </Form.Item>
                 </Form>
             </Modal>
             <Upload beforeUpload={beforeUpload}/>
