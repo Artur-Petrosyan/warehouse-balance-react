@@ -1,6 +1,6 @@
 import React from "react";
-import {Table, Upload} from "core";
-import {Button, Form, Input, Modal} from "antd";
+import { Table , Upload } from "core";
+import { Button , Form , Input , Modal } from "antd";
 
 
 const columnsProductList = [
@@ -42,6 +42,13 @@ export const ProductListPagePure = ({
                                     }) => {
     const {EXCELProductListData} = data;
     const [form] = Form.useForm()
+    const inputCheckNumber = ( value ) => {
+        const pattern = /^\d+$/
+        if ( value && !pattern.test(value) ) {
+            return Promise.reject(new Error("Must be a number"))
+        }
+        return Promise.resolve()
+    }
 
     return <div>
         <Table columns={columnsProductList} dataSource={EXCELProductListData}/>
@@ -50,11 +57,15 @@ export const ProductListPagePure = ({
             <Modal
                 open={isModalOpen}
                 onCancel={handleCancel}
-                onOk={() => handleOk(form)}
                 title="Add a new product"
+                footer={null}
             >
                 <Form
                     form={form}
+                    layout="vertical"
+                    scrollToFirstError={true}
+                    size="middle"
+                    onFinish={( values ) => handleOk(values)}
                 >
                     <Form.Item
                         label="code"
@@ -62,7 +73,12 @@ export const ProductListPagePure = ({
                         rules={[
                             {
                                 required: true,
-                                message: "Please enter the code"
+                                message : "This field is required"
+                            } ,
+                            {
+                                validator( _ , value ) {
+                                    return inputCheckNumber(value)
+                                }
                             }
                         ]}>
                         <Input/>
@@ -73,7 +89,7 @@ export const ProductListPagePure = ({
                         rules={[
                             {
                                 required: true,
-                                message: "Please enter the name"
+                                message: "This field is required"
                             }
                         ]}>
                         <Input/>
@@ -84,7 +100,12 @@ export const ProductListPagePure = ({
                         rules={[
                             {
                                 required: true,
-                                message: "Please enter the unit",
+                                message: "This field is required",
+                            } ,
+                            {
+                                validator( _ , value ) {
+                                    return inputCheckNumber(value)
+                                }
                             }
                         ]}>
                         <Input/>
@@ -97,31 +118,19 @@ export const ProductListPagePure = ({
                                 required: true,
                                 message: "This field is required",
                             },
-                            () => ({
-                                validator(_, value) {
-                                    const pattern = /^\d+$/
-                                    if (value && !pattern.test(value)) {
-                                        return Promise.reject(new Error("Must be a number"))
-                                    }
-                                    return Promise.resolve()
+                            {
+                                validator( _ , value ) {
+                                    return inputCheckNumber(value)
                                 }
-                            })
+                            }
                         ]}>
                         <Input/>
                     </Form.Item>
                     <Form.Item
-                        label="price without NDS"
-                        name="notNDS"
-                        rules={[
-                            {
-                                type: "number",
-                                required: true,
-                                message: "Please enter the price without NDS",
-
-                            },
-                        ]}
                     >
-                        <Input/>
+                        <Button
+                            htmlType="submit"
+                        >Add</Button>
                     </Form.Item>
                 </Form>
             </Modal>
