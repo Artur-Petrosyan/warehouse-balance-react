@@ -32,7 +32,6 @@ const items = [
     getItem('Product list' ,"Product-List",<UnorderedListOutlined />)
 ];
 const Layout = () => {
-    const [collapsed , setCollapsed] = useState(false);
     const path = useNavigation();
     const navigation = useNavigate();
     return (
@@ -41,12 +40,16 @@ const Layout = () => {
                 minHeight : '100vh' ,
             }}
         >
-            <Sider collapsible collapsed={collapsed} onCollapse={( value ) => setCollapsed(value)}>
+            <Sider
+                theme="light"
+                breakpoint={'md'}
+            >
                 <div className="demo-logo-vertical"/>
                 <Menu
-                    theme="dark"
+                    theme="light"
                     defaultSelectedKeys={['1']}
-                    mode="inline" items={items}
+                    mode="inline"
+                    items={items}
                     onClick={( e ) => navigation(path(e.key.toLowerCase()))}
                 />
             </Sider>
