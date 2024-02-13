@@ -1,12 +1,15 @@
-import {useDispatch, useSelector} from "react-redux";
-import {useCallback, useEffect, useMemo, useState} from "react";
-import {removeProductListData, setExcelProductListData} from "app/Providers/store/productListReducer";
+import { useDispatch , useSelector } from "react-redux";
+import { useCallback , useEffect , useMemo , useState } from "react";
+import {
+    addNewProduct ,
+    removeProductListData ,
+    setExcelProductListData
+} from "app/Providers/store/productListReducer";
 import {
     setExcelProductListDataToLocalStorage
 } from "core/lib/ExcelDataLocalStorage/setExcelProductListDataToLocalStorage";
-import {removeDataFromLocalStorage} from "core/lib/localStorageRemoveData";
-import {addNewProduct} from "app/Providers/store/productListReducer";
-import {v4} from "uuid";
+import { removeDataFromLocalStorage } from "core/lib/localStorageRemoveData";
+import { v4 } from "uuid";
 
 export const useProductListPageModel = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -20,11 +23,10 @@ export const useProductListPageModel = () => {
     const showModal = () => {
         setIsModalOpen(true);
     };
-    const handleOk = (form) => {
-        const fieldsValues = form.getFieldsValue(["code", "name", "price", "unit", "notNDS"])
+    const handleOk = ( values ) => {
         setIsModalOpen(false);
-        fieldsValues.key = v4()
-        addProduct(fieldsValues)
+        values.key = v4()
+        addProduct(values)
     };
     const handleCancel = () => {
         setIsModalOpen(false);
