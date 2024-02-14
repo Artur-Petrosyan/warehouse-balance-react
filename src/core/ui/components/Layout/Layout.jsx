@@ -1,16 +1,18 @@
-import React from 'react';
+import React , { useEffect , useState } from 'react';
 import {
     AccountBookOutlined ,
     FileOutlined ,
     HomeFilled ,
+    MenuUnfoldOutlined ,
     TeamOutlined ,
     UnorderedListOutlined
 } from '@ant-design/icons';
-import { Layout as LayoutAntd , Menu } from 'antd';
+import { Button , Drawer , Layout as LayoutAntd , Menu } from 'antd';
 import { RouterMemo } from "src/app/Providers/routes";
 import { useNavigation } from "core/hooks/useNavigation";
 import { useNavigate } from "react-router-dom";
 import { withMemo } from "core/hoc";
+import './LayoutSider.scss'
 
 const {Content , Footer , Sider} = LayoutAntd;
 
@@ -34,13 +36,33 @@ const items = [
 const Layout = () => {
     const path = useNavigation();
     const navigation = useNavigate();
+    const [open , setOpen] = useState(false);
+    const [windowWidth , setWindowWidth] = useState(false)
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize' , handleResize);
+
+        return () => {
+            window.removeEventListener('resize' , handleResize);
+        };
+    } , [windowWidth]);
+    const showDrawer = () => {
+        setOpen(true);
+    };
+    const onClose = () => {
+        setOpen(false);
+    };
     return (
         <LayoutAntd
-            style={{
-                minHeight : '100vh' ,
-            }}
+            className="layout__isMobile"
+            hasSider={windowWidth > 576}
+
         >
             <Sider
+                className="isDesktop"
                 theme="light"
                 breakpoint={'md'}
             >
@@ -53,11 +75,28 @@ const Layout = () => {
                     onClick={( e ) => navigation(path(e.key.toLowerCase()))}
                 />
             </Sider>
+            <div className="isMobile">
+                <div className="isMobile__button">
+                    <Button type="primary" icon={<MenuUnfoldOutlined/>} onClick={showDrawer}/>
+                </div>
+                <Drawer
+                    onClose={onClose}
+                    open={open}
+                >
+                    <Menu
+                        theme="light"
+                        defaultSelectedKeys={['1']}
+                        mode="inline"
+                        items={items}
+                        onClick={( e ) => navigation(path(e.key.toLowerCase()))}
+                    />
+                </Drawer>
+            </div>
             <LayoutAntd>
-                <Content
-                    style={{
-                        margin : '0 16px' ,
-                    }}
+                <Content className="content__isMobile"
+                         style={{
+                             margin : '0 16px' ,
+                         }}
                 >
                     <RouterMemo/>
                 </Content>
