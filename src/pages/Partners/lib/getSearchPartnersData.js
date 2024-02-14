@@ -1,3 +1,6 @@
+import { removeSpacesFromString } from "core/lib/removeSpacesFromString";
+import { removeAllSymbolsFromString } from "core/lib/removeAllSymbolsFromString";
+
 /**
  * Filters and returns an array of partner data based on a search query.
  *
@@ -19,7 +22,12 @@ export const getSearchPartnersData = ( data , query ) => {
     if ( data.length ) {
         return data.filter(item => {
             if ( item.name ) {
-                    return item.name.toLowerCase().includes(query.toLowerCase())
+                return removeAllSymbolsFromString(removeSpacesFromString(item.name)
+                    .toLowerCase())
+                    .includes(
+                        removeAllSymbolsFromString(removeSpacesFromString(query)
+                            .toLowerCase())
+                    )
                 }
             }
         );
