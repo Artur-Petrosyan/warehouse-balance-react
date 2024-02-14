@@ -37,7 +37,7 @@ const Layout = () => {
     const path = useNavigation();
     const navigation = useNavigate();
     const [open , setOpen] = useState(false);
-    const [windowWidth , setWindowWidth] = useState(false)
+    const [windowWidth , setWindowWidth] = useState(window.innerWidth)
     useEffect(() => {
         const handleResize = () => {
             setWindowWidth(window.innerWidth);
@@ -59,7 +59,7 @@ const Layout = () => {
         <LayoutAntd
             className="layout__isMobile"
             hasSider={windowWidth > 576}
-
+            style={windowWidth > 576 ? {minHeight  : "100vh"} : ""}
         >
             <Sider
                 className="isDesktop"
