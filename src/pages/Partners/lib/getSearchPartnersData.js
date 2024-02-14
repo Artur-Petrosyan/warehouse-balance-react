@@ -1,4 +1,3 @@
-import { removeSpacesFromString } from "core/lib/removeSpacesFromString";
 import { removeAllSymbolsFromString } from "core/lib/removeAllSymbolsFromString";
 
 /**
@@ -22,11 +21,12 @@ export const getSearchPartnersData = ( data , query ) => {
     if ( data.length ) {
         return data.filter(item => {
             if ( item.name ) {
-                return removeAllSymbolsFromString(removeSpacesFromString(item.name)
-                    .toLowerCase())
+                console.log(removeAllSymbolsFromString(query))
+                return removeAllSymbolsFromString(item.name)
+                    .toLowerCase()
                     .includes(
-                        removeAllSymbolsFromString(removeSpacesFromString(query)
-                            .toLowerCase())
+                        removeAllSymbolsFromString(query)
+                            .toLowerCase()
                     )
                 }
             }
