@@ -9,4 +9,4 @@
  * const strWithoutSymbols = removeAllSymbolsFromString(strWithSymbols);
  * console.log(strWithoutSymbols); // 'HelloWorld'
  */
-export const removeAllSymbolsFromString = ( str ) => str.replace(/[<,.>«» -"' |@#$%^*()_+~!՞՚։—՜՝`;:{}&?]/g , '');
+export const removeAllSymbolsFromString = ( str ) => str.replace(/[<,.>«» -"' |@#$%^*()_+~!՞՚։—՜՝`;:{}&?-]/g , '');
