@@ -1,0 +1,33 @@
+@media screen and (max-width: 576px) {
+  .isDesktop {
+    display: none;
+  }
+}
+
+
+@media screen and (min-width: 576px) {
+  .isMobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .layout__isMobile {
+    display: flex;
+    flex-direction: column;
+  }
+  .isMobile {
+    display: block;
+    border-bottom: 2px black solid;
+  }
+  .isMobile__button {
+    margin-bottom: 15px;
+    padding: 10px;
+  }
+
+}
+
+.isMobile__button {
+  display: flex;
+  justify-content: start;
+}
