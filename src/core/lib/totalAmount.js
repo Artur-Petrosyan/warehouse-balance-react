@@ -39,5 +39,11 @@ export const totalAmount = data => data.reduce(( acc , obj ) => {
             totalPrice : obj.totalPrice ,
         });
     }
-    return acc;
+
+    return acc.map(( item ) => {
+        return {
+            ...item ,
+            totalPrice : Number(item.totalPrice.toFixed(2))
+        }
+    });
 } , []);
