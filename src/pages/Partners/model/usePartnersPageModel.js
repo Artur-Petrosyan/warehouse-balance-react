@@ -38,6 +38,7 @@ import { useDispatch , useSelector } from "react-redux";
 import { setExcelData } from "app/Providers/store/excelDataReducer";
 import { setExcelDataToLocalStorage } from "core/lib/ExcelDataLocalStorage";
 import { navigateToGoogleMap } from "core/lib/navigateToGoogleMap";
+import { Typography } from "antd";
 
 export const usePartnersPageModel = () => {
     const [alertState , setAlertState] = useState(null)
@@ -51,6 +52,7 @@ export const usePartnersPageModel = () => {
             key : '2' ,
             title : 'HVHH' ,
             dataIndex : "HVHH" ,
+            render : text => <Typography.Text copyable={true}>{text}</Typography.Text>
         } ,
         {
             key : '3' ,
