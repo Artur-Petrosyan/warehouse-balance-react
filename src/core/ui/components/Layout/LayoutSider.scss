@@ -1,17 +1,4 @@
-@media screen and (max-width: 576px) {
-  .isDesktop {
-    display: none;
-  }
-}
-
-
-@media screen and (min-width: 576px) {
-  .isMobile {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 576px) {
+@media screen and  (max-width: 768px) {
   .layout__isMobile {
     display: flex;
     flex-direction: column;
@@ -20,13 +7,12 @@
     border-bottom: 2px black solid;
   }
   .isMobile__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 10px 30px;
+    text-align: center;
   }
 
-}
-
-.isMobile__button {
-  display: flex;
-  justify-content: start;
 }
