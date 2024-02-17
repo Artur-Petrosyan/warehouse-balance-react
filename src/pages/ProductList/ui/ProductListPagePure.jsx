@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useMemo } from "react";
 import { Table , Upload } from "core";
 import { Button , Form , Input , Modal } from "antd";
 
@@ -38,7 +38,8 @@ export const ProductListPagePure = ({
                                         isModalOpen,
                                         handleOk,
                                         showModal,
-                                        handleCancel
+                                        handleCancel ,
+                                        expandedRowRenderTable
                                     }) => {
     const {EXCELProductListData} = data;
     const [form] = Form.useForm()
@@ -49,9 +50,10 @@ export const ProductListPagePure = ({
         }
         return Promise.resolve()
     }
-
+    const codesInExcelProductListData = useMemo(() => EXCELProductListData.map(( product ) => product.code) , [EXCELProductListData])
     return <div>
-        <Table columns={columnsProductList} dataSource={EXCELProductListData}/>
+        <Table columns={columnsProductList} dataSource={EXCELProductListData}
+               expandedRowRenderTable={expandedRowRenderTable}/>
         <div className="upload-open__container">
             <Button onClick={showModal}>Add Product</Button>
             <Modal
@@ -77,6 +79,7 @@ export const ProductListPagePure = ({
                             } ,
                             {
                                 validator( _ , value ) {
+
                                     return inputCheckNumber(value)
                                 }
                             }

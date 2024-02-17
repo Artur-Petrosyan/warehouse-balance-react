@@ -10,6 +10,7 @@ import {
 } from "core/lib/ExcelDataLocalStorage/setExcelProductListDataToLocalStorage";
 import { removeDataFromLocalStorage } from "core/lib/localStorageRemoveData";
 import { v4 } from "uuid";
+import { Typography } from "antd";
 
 export const useProductListPageModel = () => {
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -32,6 +33,9 @@ export const useProductListPageModel = () => {
         setIsModalOpen(false);
     };
 
+    const expandedRowRenderTable = record => <Typography.Text
+        copyable={true}>{`${record.code}/${record.name}`}</Typography.Text>
+
     useEffect(() => {
         dispatch(setExcelProductListData())
     }, [dispatch]);
@@ -39,5 +43,15 @@ export const useProductListPageModel = () => {
         dispatch(removeProductListData());
         removeDataFromLocalStorage(dataRemoveName)
     };
-    return {data, beforeUpload, removeData, addProduct, isModalOpen, showModal, handleOk, handleCancel};
+    return {
+        data ,
+        beforeUpload ,
+        removeData ,
+        addProduct ,
+        isModalOpen ,
+        showModal ,
+        handleOk ,
+        handleCancel ,
+        expandedRowRenderTable
+    };
 };
