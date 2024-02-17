@@ -43,7 +43,7 @@ export const totalAmount = data => data.reduce(( acc , obj ) => {
     return acc.map(( item ) => {
         return {
             ...item ,
-            notNDS : Number(obj?.notNDS.toFixed(2)) ,
+            notNDS : Number(item?.notNDS.toFixed(2)) ,
             totalPrice : Number(item?.totalPrice.toFixed(2))
         }
     });
