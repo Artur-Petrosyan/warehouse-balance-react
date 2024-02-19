@@ -79,7 +79,11 @@ const Layout = () => {
                         defaultSelectedKeys={['1']}
                         mode="inline"
                         items={items}
-                        onClick={( e ) => navigation(path(e.key.toLowerCase()))}
+                        onClick={( e ) => {
+                            onClose()
+                            navigation(path(e.key.toLowerCase()))
+                        }
+                        }
                     />
                 </Drawer>
             </div>
