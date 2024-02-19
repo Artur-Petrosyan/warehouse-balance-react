@@ -21,7 +21,6 @@ export const getSearchPartnersData = ( data , query ) => {
     if ( data.length ) {
         return data.filter(item => {
             if ( item.name ) {
-                console.log(removeAllSymbolsFromString(query))
                 return removeAllSymbolsFromString(item.name)
                     .toLowerCase()
                     .includes(
