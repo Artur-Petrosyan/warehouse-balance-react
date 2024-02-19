@@ -23,8 +23,6 @@ export const setUploadXMLToLocalStorage = ( file ) => {
         reader.onload = async function ( e ) {
             const xmlData = e.target.result;
             localStorage.setItem('xmlData' , xmlData);
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(xmlData , 'application/xml');
             const XMLData = await getXMLDataFromLocalStorage("Good");
             const arrayFromXML =  arrayFromHTMLCollection(XMLData);
             store.dispatch(setXmlData(totalAmount(arrayFromXML)))
