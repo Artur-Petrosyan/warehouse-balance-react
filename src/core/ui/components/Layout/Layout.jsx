@@ -7,13 +7,14 @@ import {
     TeamOutlined ,
     UnorderedListOutlined
 } from '@ant-design/icons';
-import { Button , Drawer , Layout as LayoutAntd , Menu , Typography } from 'antd';
+import { Button , Drawer , FloatButton , Layout as LayoutAntd , Menu , Typography } from 'antd';
 import { RouterMemo } from "src/app/Providers/routes";
 import { useNavigation } from "core/hooks/useNavigation";
 import { useNavigate } from "react-router-dom";
 import { withMemo } from "core/hoc";
 import './LayoutSider.scss'
 import useMatchMedia from "core/hooks/MediaQueryList/useMatchMedia";
+import useScrollToTop from "core/hooks/Scroll/useScrollToTop";
 
 const {Content , Footer , Sider} = LayoutAntd;
 
@@ -39,6 +40,7 @@ const Layout = () => {
     const navigation = useNavigate();
     const [open , setOpen] = useState(false);
     const {isMobile , isIpadOrTablet} = useMatchMedia()
+    useScrollToTop(path)
     const showDrawer = () => {
         setOpen(true);
     };
@@ -95,6 +97,7 @@ const Layout = () => {
                          }}
                 >
                     <RouterMemo/>
+                    <FloatButton.BackTop visibilityHeight={400}/>
                 </Content>
                 <Footer
                     style={{
