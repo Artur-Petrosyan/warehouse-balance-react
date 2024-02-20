@@ -13,13 +13,13 @@
  *
  * export default inputSearch;
  */
-import { useEffect , useState } from 'react';
-import { Input } from 'antd';
-import { useDispatch , useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { Input } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import { setSearchPartnersData } from "app/Providers/store/searchPartnersDataReducer";
 import { removeAllSymbolsFromString } from "src/core/lib/removeAllSymbolsFromString";
 
-const {Search} = Input;
+const { Search } = Input;
 
 /**
  * Renders an input search component with the given props.
@@ -36,36 +36,40 @@ const {Search} = Input;
  *
  * export default inputSearch;
  */
-export const InputSearch = ({placeholderText}) => {
-    const dispatch = useDispatch();
-    const [searchQuery, setSearchQuery] = useState('');
-    const data = useSelector(state => state.EXCELData);
+export const InputSearch = ({ placeholderText }) => {
+  const dispatch = useDispatch();
+  const [searchQuery, setSearchQuery] = useState("");
+  const data = useSelector((state) => state.EXCELData);
 
-    useEffect(() => {
-        if (searchQuery) {
-            const timeOutId = setTimeout(() => {
-                dispatch(setSearchPartnersData({
-                    data: data.EXCELData || [],
-                    query: removeAllSymbolsFromString(searchQuery),
-                }));
-            }, 1000);
-            return () => clearTimeout(timeOutId);
-        } else {
-            dispatch(setSearchPartnersData({
-                data: [],
-                query: searchQuery,
-            }));
-        }
-    }, [searchQuery, dispatch, data]);
+  useEffect(() => {
+    if (searchQuery) {
+      const timeOutId = setTimeout(() => {
+        dispatch(
+          setSearchPartnersData({
+            data: data.EXCELData || [],
+            query: removeAllSymbolsFromString(searchQuery),
+          }),
+        );
+      }, 1000);
+      return () => clearTimeout(timeOutId);
+    } else {
+      dispatch(
+        setSearchPartnersData({
+          data: [],
+          query: searchQuery,
+        }),
+      );
+    }
+  }, [searchQuery, dispatch, data]);
 
-    return (
-        <div className='header__search'>
-            <Search
-                placeholder={placeholderText}
-                allowClear
-                onChange={e => setSearchQuery(e.target.value)}
-                size="large"
-            />
-        </div>
-    );
+  return (
+    <div className="header__search">
+      <Search
+        placeholder={placeholderText}
+        allowClear
+        onChange={(e) => setSearchQuery(e.target.value)}
+        size="large"
+      />
+    </div>
+  );
 };

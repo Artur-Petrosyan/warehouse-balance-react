@@ -23,21 +23,25 @@ import { convertToArray } from "./convertToArray";
  * //   { price: '200 դր.' },
  * // ]
  */
-export const arrayFromHTMLCollectionPartnersNameAndPrice = ( items , name , convertName ) => {
-    return Array.from(items).map(( item ) => {
-        const buyer = item.querySelector(name);
-        if ( buyer.tagName === 'TotalPrice' ) {
-            return {
-                price : `${Number(buyer.innerHTML)} դր.`
-            }
-        }
+export const arrayFromHTMLCollectionPartnersNameAndPrice = (
+  items,
+  name,
+  convertName,
+) => {
+  return Array.from(items).map((item) => {
+    const buyer = item.querySelector(name);
+    if (buyer.tagName === "TotalPrice") {
+      return {
+        price: `${Number(buyer.innerHTML)} դր.`,
+      };
+    }
 
-        const buyerName = convertToArray(buyer , convertName);
+    const buyerName = convertToArray(buyer, convertName);
 
-        const id = v4();
-        return {
-            key : id ,
-            name : buyerName ,
-        };
-    });
+    const id = v4();
+    return {
+      key: id,
+      name: buyerName,
+    };
+  });
 };

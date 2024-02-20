@@ -1,1 +1,1 @@
-export * from './uploadProps'
+export * from "./uploadProps";

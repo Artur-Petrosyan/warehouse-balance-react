@@ -15,7 +15,8 @@
  *   console.log(value);
  * });
  */
-export const convertToArray = ( item , name ) => Array.from(item.children)
-    .filter(item => item.tagName === name)
-    .map(item => item.innerHTML)
+export const convertToArray = (item, name) =>
+  Array.from(item.children)
+    .filter((item) => item.tagName === name)
+    .map((item) => item.innerHTML)
     .toString();

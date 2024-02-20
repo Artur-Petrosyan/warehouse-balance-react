@@ -1,3 +1,1 @@
-const addProduct = () => {
-
-}
+const addProduct = () => {};

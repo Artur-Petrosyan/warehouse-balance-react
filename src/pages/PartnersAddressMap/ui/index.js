@@ -1,1 +1,1 @@
-export * from './PartnersAddressMapPage'
+export * from "./PartnersAddressMapPage";

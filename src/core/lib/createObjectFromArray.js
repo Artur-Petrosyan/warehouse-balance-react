@@ -21,13 +21,16 @@
 import { v4 } from "uuid";
 import { removeSpacesFromString } from "./removeSpacesFromString";
 
-export const createObjectFromArray = ( array ) => {
-    return array.map(item => {
-        return {
-            key : v4() ,
-            name : item[0] ,
-            HVHH : typeof item[1] === "string" ? removeSpacesFromString(item[1]) : String(item[1]) ,
-            address : item[2] ? item[2] : "unknown"
-        }
-    })
-}
+export const createObjectFromArray = (array) => {
+  return array.map((item) => {
+    return {
+      key: v4(),
+      name: item[0],
+      HVHH:
+        typeof item[1] === "string"
+          ? removeSpacesFromString(item[1])
+          : String(item[1]),
+      address: item[2] ? item[2] : "unknown",
+    };
+  });
+};

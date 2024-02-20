@@ -9,4 +9,5 @@
  * const excelData = getExcelDataFromLocalStorage("excelData");
  * console.log(excelData); // Output: The Excel data from local storage
  */
-export const getExcelDataFromLocalStorage = ( dataName ) => JSON.parse(localStorage.getItem(`${dataName}`));
+export const getExcelDataFromLocalStorage = (dataName) =>
+  JSON.parse(localStorage.getItem(`${dataName}`));

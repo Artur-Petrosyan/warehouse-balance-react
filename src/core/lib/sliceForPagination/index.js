@@ -1,1 +1,1 @@
-export * from './sliceForPagination';
+export * from "./sliceForPagination";

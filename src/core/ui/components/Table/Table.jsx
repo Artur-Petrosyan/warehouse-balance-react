@@ -50,14 +50,21 @@ import { Loader } from "../Loader/Loader";
 import { memo } from "react";
 import useBreakpoint from "antd/es/grid/hooks/useBreakpoint";
 
-export const Table = memo(( {status , dataSource , columns , expandedRowRenderTable} ) => {
-    const breakPoints = useBreakpoint()
-    return status === "loading" ? <Loader/> : <TableAntd
+export const Table = memo(
+  ({ status, dataSource, columns, expandedRowRenderTable }) => {
+    const breakPoints = useBreakpoint();
+    return status === "loading" ? (
+      <Loader />
+    ) : (
+      <TableAntd
         columns={columns}
         dataSource={dataSource}
         expandedRowRender={expandedRowRenderTable}
         size={breakPoints.md ? "large" : "small"}
-    />
-},(prevProps, nextProps) => {
-   if (prevProps.dataSource !== nextProps.dataSource) return false
-})
+      />
+    );
+  },
+  (prevProps, nextProps) => {
+    if (prevProps.dataSource !== nextProps.dataSource) return false;
+  },
+);

@@ -12,12 +12,12 @@
  * @example
  * navigateToGoogleMap('unknown', setAlertState);
  */
-export function navigateToGoogleMap( cell , setAlertState ) {
-    if ( cell !== 'unknown' ) {
-        const googleMapURL = `https://www.google.com/maps?q=${encodeURIComponent(cell)}`;
-        setAlertState(false);
-        return window.open(googleMapURL , '_black');
-    } else {
-        return setAlertState(true);
-    }
+export function navigateToGoogleMap(cell, setAlertState) {
+  if (cell !== "unknown") {
+    const googleMapURL = `https://www.google.com/maps?q=${encodeURIComponent(cell)}`;
+    setAlertState(false);
+    return window.open(googleMapURL, "_black");
+  } else {
+    return setAlertState(true);
+  }
 }

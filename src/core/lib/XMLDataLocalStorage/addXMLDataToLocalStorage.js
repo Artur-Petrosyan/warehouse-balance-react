@@ -11,26 +11,26 @@
  * // Call the function with a function that retrieves items from the parsed XML data
  * addXMLDataToLocalStorage(getItems);
  */
-export const addXMLDataToLocalStorage = ( getItems ) => {
-    const buttonToLocalStorage = document.querySelector('.to__local')
+export const addXMLDataToLocalStorage = (getItems) => {
+  const buttonToLocalStorage = document.querySelector(".to__local");
 
-    buttonToLocalStorage.addEventListener('click' , async () => {
-        let fileInput = document.getElementById('fileInput');
-        let file = fileInput.files[0];
+  buttonToLocalStorage.addEventListener("click", async () => {
+    let fileInput = document.getElementById("fileInput");
+    let file = fileInput.files[0];
 
-        if ( file ) {
-            let reader = new FileReader();
+    if (file) {
+      let reader = new FileReader();
 
-            reader.onload = async function ( event ) {
-                let xmlData = event.target.result;
-                localStorage.setItem('xmlData' , xmlData);
+      reader.onload = async function (event) {
+        let xmlData = event.target.result;
+        localStorage.setItem("xmlData", xmlData);
 
-                let parser = new DOMParser();
-                let xmlDoc = parser.parseFromString(xmlData , "text/xml");
-                await getItems(xmlDoc);
-            };
+        let parser = new DOMParser();
+        let xmlDoc = parser.parseFromString(xmlData, "text/xml");
+        await getItems(xmlDoc);
+      };
 
-            reader.readAsText(file);
-        }
-    })
+      reader.readAsText(file);
+    }
+  });
 };

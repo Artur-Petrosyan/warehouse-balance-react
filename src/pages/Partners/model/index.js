@@ -1,1 +1,1 @@
-export * from './usePartnersPageModel'
+export * from "./usePartnersPageModel";

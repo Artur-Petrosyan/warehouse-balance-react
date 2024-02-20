@@ -1,1 +1,1 @@
-export * from './withMemo'
+export * from "./withMemo";

@@ -1,1 +1,1 @@
-export * from './useWrittenOffPageModel'
+export * from "./useWrittenOffPageModel";

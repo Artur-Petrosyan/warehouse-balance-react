@@ -8,4 +8,5 @@
  * // Remove data from local storage with the name "myData"
  * removeDataFromLocalStorage("myData");
  */
-export const removeDataFromLocalStorage = ( dataName ) => localStorage.removeItem(`${dataName}`);
+export const removeDataFromLocalStorage = (dataName) =>
+  localStorage.removeItem(`${dataName}`);

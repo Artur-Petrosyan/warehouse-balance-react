@@ -18,22 +18,22 @@
  * });
  */
 import { convertToArray } from "./convertToArray";
-import { v4 } from 'uuid';
+import { v4 } from "uuid";
 
-export const arrayFromHTMLCollection = ( items ) =>
-    Array.from(items).map(( item ) => {
-        const description = convertToArray(item , "Description");
-        const amount = convertToArray(item , "Amount");
-        const priceNotNds = convertToArray(item , "Price");
-        const totalPrice = convertToArray(item , "TotalPrice");
-        const unit = convertToArray(item , "Unit");
-        const id = v4()
-        return {
-            key : id ,
-            name : description ,
-            unit : unit ,
-            amount : Number(amount) ,
-            notNDS : Number(priceNotNds) ,
-            totalPrice : Number(totalPrice) ,
-        };
-    });
+export const arrayFromHTMLCollection = (items) =>
+  Array.from(items).map((item) => {
+    const description = convertToArray(item, "Description");
+    const amount = convertToArray(item, "Amount");
+    const priceNotNds = convertToArray(item, "Price");
+    const totalPrice = convertToArray(item, "TotalPrice");
+    const unit = convertToArray(item, "Unit");
+    const id = v4();
+    return {
+      key: id,
+      name: description,
+      unit: unit,
+      amount: Number(amount),
+      notNDS: Number(priceNotNds),
+      totalPrice: Number(totalPrice),
+    };
+  });

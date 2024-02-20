@@ -17,18 +17,14 @@ import { removeAllSymbolsFromString } from "core/lib/removeAllSymbolsFromString"
  * const filteredPartnerData = getSearchPartnersData(partnerData, 'Doe');
  * console.log(filteredPartnerData); // [{ id: 1, name: 'John Doe' }]
  */
-export const getSearchPartnersData = ( data , query ) => {
-    if ( data.length ) {
-        return data.filter(item => {
-            if ( item.name ) {
-                return removeAllSymbolsFromString(item.name)
-                    .toLowerCase()
-                    .includes(
-                        removeAllSymbolsFromString(query)
-                            .toLowerCase()
-                    )
-                }
-            }
-        );
-    }
+export const getSearchPartnersData = (data, query) => {
+  if (data.length) {
+    return data.filter((item) => {
+      if (item.name) {
+        return removeAllSymbolsFromString(item.name)
+          .toLowerCase()
+          .includes(removeAllSymbolsFromString(query).toLowerCase());
+      }
+    });
+  }
 };

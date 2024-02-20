@@ -10,4 +10,4 @@
  * const strWithoutSpaces = removeSpacesFromString(strWithSpaces);
  * console.log(strWithoutSpaces); // Output: "Thisisastringwithspaces"
  */
-export const removeSpacesFromString = ( str ) => str.replace(/\s/g , '')
+export const removeSpacesFromString = (str) => str.replace(/\s/g, "");

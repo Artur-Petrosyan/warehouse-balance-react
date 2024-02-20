@@ -16,21 +16,20 @@
  *   );
  * }
  */
-import { InputSearch } from 'src/core/ui/components';
+import { InputSearch } from "src/core/ui/components";
 
-import { Button } from '../Button';
+import { Button } from "../Button";
 
-import { NavBar } from '../NavBar/NavBar';
+import { NavBar } from "../NavBar/NavBar";
 
-import 'src/core/ui/components/Header/header.scss'
+import "src/core/ui/components/Header/header.scss";
 
-export const Header = ({navList}) => {
-    return (
-        <header className='header'>
-            <NavBar navList={navList} />
-            <InputSearch />
-            <Button variant={'button-logout'}>Log out</Button>
-        </header>
-    );
+export const Header = ({ navList }) => {
+  return (
+    <header className="header">
+      <NavBar navList={navList} />
+      <InputSearch />
+      <Button variant={"button-logout"}>Log out</Button>
+    </header>
+  );
 };
-

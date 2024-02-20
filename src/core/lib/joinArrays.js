@@ -18,8 +18,8 @@
  * //   { id: 2, name: 'Jane', age: 25 },
  * // ]
  */
-export const joinArrays = ( arr1 , arr2 ) => {
-    return arr1.map(( item , index ) => {
-        return {...item , ...arr2[index]}
-    })
-}
+export const joinArrays = (arr1, arr2) => {
+  return arr1.map((item, index) => {
+    return { ...item, ...arr2[index] };
+  });
+};

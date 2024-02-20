@@ -14,15 +14,15 @@ import { v4 } from "uuid";
  * const productList = createObjectFromProductListArray(productListArray);
  * console.log(productList);
  */
-export const createObjectFromProductListArray = ( array ) => {
-    return array.slice(1).map(item => {
-        return {
-            key : v4() ,
-            code : item[0] ,
-            name : String(item[1]).trim() ,
-            unit : item[2] ? item[2] : "unknown" ,
-            price : item[3] ,
-            notNDS : item[4]?.toFixed(2)
-        }
-    })
-}
+export const createObjectFromProductListArray = (array) => {
+  return array.slice(1).map((item) => {
+    return {
+      key: v4(),
+      code: item[0],
+      name: String(item[1]).trim(),
+      unit: item[2] ? item[2] : "unknown",
+      price: item[3],
+      notNDS: item[4]?.toFixed(2),
+    };
+  });
+};

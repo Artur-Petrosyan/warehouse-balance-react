@@ -1,2 +1,2 @@
-export * from './PartnersPagePure'
+export * from "./PartnersPagePure";
 export { navigateToGoogleMap } from "core/lib/navigateToGoogleMap";

@@ -13,20 +13,22 @@ import { setProductListData } from "app/Providers/store/productListReducer";
  * const file = new File(['data:text/plain;base64,SGVsbG8gV29ybGQh'], 'example.txt', { type: 'text/plain' });
  * setExcelProductListDataToLocalStorage(file);
  */
-export const setExcelProductListDataToLocalStorage = ( file ) => {
-    const reader = new FileReader();
-    reader.onload = async function ( e ) {
-        const excelData = e.target.result;
-        const workbook = XLSX.read(excelData , {type : "binary"});
-        const sheets = workbook.Sheets[workbook.SheetNames[0]];
-        const jsonData = XLSX.utils.sheet_to_json(sheets , {header : 1});
-        const arrayFromJsonData = removeFalsyValuesFromArray(jsonData);
-        localStorage.setItem(
-            "excelProductListData" ,
-            JSON.stringify(createObjectFromProductListArray(arrayFromJsonData))
-        );
-        store.dispatch(setProductListData(createObjectFromProductListArray(arrayFromJsonData)));
-    };
-    reader.readAsBinaryString(file);
-    return false;
+export const setExcelProductListDataToLocalStorage = (file) => {
+  const reader = new FileReader();
+  reader.onload = async function (e) {
+    const excelData = e.target.result;
+    const workbook = XLSX.read(excelData, { type: "binary" });
+    const sheets = workbook.Sheets[workbook.SheetNames[0]];
+    const jsonData = XLSX.utils.sheet_to_json(sheets, { header: 1 });
+    const arrayFromJsonData = removeFalsyValuesFromArray(jsonData);
+    localStorage.setItem(
+      "excelProductListData",
+      JSON.stringify(createObjectFromProductListArray(arrayFromJsonData)),
+    );
+    store.dispatch(
+      setProductListData(createObjectFromProductListArray(arrayFromJsonData)),
+    );
+  };
+  reader.readAsBinaryString(file);
+  return false;
 };

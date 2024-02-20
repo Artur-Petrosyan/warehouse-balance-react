@@ -1,1 +1,1 @@
-export * from './WrittenOffPage'
+export * from "./WrittenOffPage";

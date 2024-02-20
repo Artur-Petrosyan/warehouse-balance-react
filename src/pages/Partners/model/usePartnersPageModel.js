@@ -33,49 +33,62 @@
  *
  * export default PartnersPage;
  */
-import React , { useCallback , useEffect , useMemo , useState } from "react";
-import { useDispatch , useSelector } from "react-redux";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { setExcelData } from "app/Providers/store/excelDataReducer";
 import { setExcelDataToLocalStorage } from "core/lib/ExcelDataLocalStorage";
 import { navigateToGoogleMap } from "core/lib/navigateToGoogleMap";
 import { Typography } from "antd";
 
 export const usePartnersPageModel = () => {
-    const [alertState , setAlertState] = useState(null)
-    const columns = [
-        {
-            key : '1' ,
-            title : 'Name' ,
-            dataIndex : 'name' ,
-        } ,
-        {
-            key : '2' ,
-            title : 'HVHH' ,
-            dataIndex : "HVHH" ,
-            render : text => <Typography.Text copyable={true}>{text}</Typography.Text>
-        } ,
-        {
-            key : '3' ,
-            title : 'Address' ,
-            dataIndex : "address" ,
-            render : ( text ) => {
-                return <span style={{cursor : "pointer" , color : 'blue'}}
-                             onClick={() => navigateToGoogleMap(text , setAlertState)}>{text}</span>
-            }
-        } ,
-    ];
-    const dispatch = useDispatch();
-    /*TODO: Add the logic when the user download not EXCEL file, "ALERT or ERROR" */
-    const data = useSelector(( state ) => state.EXCELData);
-    const filteredData = useSelector(state => state.searchPartnersData)
-    const {searchData , searchQuery} = filteredData.searchData;
-    const status = filteredData.status
-    useEffect(() => {
-        dispatch(setExcelData())
-    } , [dispatch]);
-    const beforeUpload = useMemo(() => setExcelDataToLocalStorage,[])
-    const openExcelFile = useCallback(() => {
-        dispatch(setExcelData())
-    } , [dispatch])
-    return {data , searchData , searchQuery , status , openExcelFile , beforeUpload , columns , alertState};
+  const [alertState, setAlertState] = useState(null);
+  const columns = [
+    {
+      key: "1",
+      title: "Name",
+      dataIndex: "name",
+    },
+    {
+      key: "2",
+      title: "HVHH",
+      dataIndex: "HVHH",
+      render: (text) => <Typography.Text copyable>{text}</Typography.Text>,
+    },
+    {
+      key: "3",
+      title: "Address",
+      dataIndex: "address",
+      render: (text) => (
+        <span
+          style={{ cursor: "pointer", color: "blue" }}
+          onClick={() => navigateToGoogleMap(text, setAlertState)}
+        >
+          {text}
+        </span>
+      ),
+    },
+  ];
+  const dispatch = useDispatch();
+  /* TODO: Add the logic when the user download not EXCEL file, "ALERT or ERROR" */
+  const data = useSelector((state) => state.EXCELData);
+  const filteredData = useSelector((state) => state.searchPartnersData);
+  const { searchData, searchQuery } = filteredData.searchData;
+  const { status } = filteredData;
+  useEffect(() => {
+    dispatch(setExcelData());
+  }, [dispatch]);
+  const beforeUpload = useMemo(() => setExcelDataToLocalStorage, []);
+  const openExcelFile = useCallback(() => {
+    dispatch(setExcelData());
+  }, [dispatch]);
+  return {
+    data,
+    searchData,
+    searchQuery,
+    status,
+    openExcelFile,
+    beforeUpload,
+    columns,
+    alertState,
+  };
 };

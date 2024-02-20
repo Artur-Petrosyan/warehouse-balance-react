@@ -19,13 +19,17 @@
  * console.log(similarObject);
  * // Output: { name: 'Object 1' }
  */
-export const similarityObjectsByName = ( acc , obj ) => acc.find(item =>
-    item.name.toLowerCase()
+export const similarityObjectsByName = (acc, obj) =>
+  acc.find(
+    (item) =>
+      item.name
+        .toLowerCase()
         // eslint-disable-next-line no-control-regex
-        .replace(/[\s\x00-\x1F\x7F]+/g , '')
-        .replace(/[^a-zA-Za-яА-ЯԱ-Ֆա-ֆ0-9]+/g , '') ===
-    obj.name.toLowerCase()
+        .replace(/[\s\x00-\x1F\x7F]+/g, "")
+        .replace(/[^a-zA-Za-яА-ЯԱ-Ֆա-ֆ0-9]+/g, "") ===
+      obj.name
+        .toLowerCase()
         // eslint-disable-next-line no-control-regex
-        .replace(/[\s\x00-\x1F\x7F]+/g , '')
-        .replace(/[^a-zA-Za-яА-ЯԱ-Ֆա-ֆ0-9]+/g , '')
-);
+        .replace(/[\s\x00-\x1F\x7F]+/g, "")
+        .replace(/[^a-zA-Za-яА-ЯԱ-Ֆա-ֆ0-9]+/g, ""),
+  );

@@ -21,12 +21,12 @@
  *
  * export default YourComponent;
  */
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 const useScrollToTop = (path) => {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [path]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [path]);
 };
 
 export default useScrollToTop;

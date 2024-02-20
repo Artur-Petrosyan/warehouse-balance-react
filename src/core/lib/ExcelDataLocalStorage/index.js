@@ -1,2 +1,2 @@
-export * from './setExcelDataToLocalStorage'
-export * from './getExcelDataFromLocalStorage'
+export * from "./setExcelDataToLocalStorage";
+export * from "./getExcelDataFromLocalStorage";

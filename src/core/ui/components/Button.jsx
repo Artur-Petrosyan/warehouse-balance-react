@@ -1,4 +1,3 @@
-
 /**
  * Renders a button component with the given props.
  *
@@ -30,10 +29,10 @@
  *   );
  * }
  */
-export const Button = ({children, variant = '',...rest}) => {
-    return (
-        <button {...rest} className={`button ${variant}`}>
-            {children}
-        </button>
-    );
+export const Button = ({ children, variant = "", ...rest }) => {
+  return (
+    <button {...rest} className={`button ${variant}`}>
+      {children}
+    </button>
+  );
 };

@@ -15,9 +15,9 @@
  * const thirdPageData = sliceForPagination(dataArray, 3);
  * console.log(thirdPageData);
  */
-export const sliceForPagination = ( data , pageNumber ) => {
-    const limit = 40;
-    const lastShow = pageNumber * limit;
-    const firstShow = lastShow - limit;
-    return data.slice(firstShow , lastShow);
+export const sliceForPagination = (data, pageNumber) => {
+  const limit = 40;
+  const lastShow = pageNumber * limit;
+  const firstShow = lastShow - limit;
+  return data.slice(firstShow, lastShow);
 };
