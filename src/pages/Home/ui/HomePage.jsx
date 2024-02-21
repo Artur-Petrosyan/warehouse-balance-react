@@ -1,7 +1,12 @@
 import React from "react";
+import ExchangeCalculator from "./ExchangeCalculator";
 
 function HomePage() {
-  return <div>Home page</div>;
+  return (
+    <div>
+      <ExchangeCalculator />
+    </div>
+  );
 }
 
 export default HomePage;
