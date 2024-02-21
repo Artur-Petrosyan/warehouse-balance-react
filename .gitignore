@@ -21,5 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/pages/Home/lib/API_KEY.js
+src/pages/Home/lib/fetchGetCurrenciesData.js
+src/pages/Home/lib/fetchGetExchangeData.js
 
 .idea/
