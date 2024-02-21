@@ -8,7 +8,10 @@ const ExchangeCalculator = () => {
   const [rate, setRate] = useState("");
   // const [currencies, setCurrencies] = useState();
   const currencyData = useMemo(() => cc.data, []);
-
+  //TODO: add the default value in "Select" component
+  //TODO: add second "SELECT" component in right side
+  //TODO: add flags in SELECT.OPTION
+  //TODO: add logic for get rate in 'onChange' SELECT
   const getRateData = useCallback(async () => {
     try {
       const data = await fetchGetExchangeRate();
