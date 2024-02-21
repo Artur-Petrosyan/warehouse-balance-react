@@ -4,9 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { rootReducer } from "./rootReducer";
 
 export const store = configureStore({
-  reducer: rootReducer,
+    reducer: rootReducer
 });
 
-export const withStore = (component) => (
-  <Provider store={store}>{component}</Provider>
-);
+export const withStore = component => <Provider store={store}>{component}</Provider>;

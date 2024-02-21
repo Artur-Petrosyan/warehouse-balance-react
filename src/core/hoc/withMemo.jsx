@@ -14,4 +14,4 @@ import { memo } from "react";
  *
  * export default MemoizedComponent;
  */
-export const withMemo = (component) => memo(component);
+export const withMemo = component => memo(component);

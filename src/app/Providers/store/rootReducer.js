@@ -6,9 +6,9 @@ import buyerAndPriceReducer from "./buyerAndPriceReducer";
 import productListReducer from "./productListReducer";
 
 export const rootReducer = combineReducers({
-  XMLData: xmlDataReducer,
-  EXCELData: excelDataReducer,
-  searchPartnersData: searchPartnersDataReducer,
-  buyerAndPriceData: buyerAndPriceReducer,
-  EXCELProductListData: productListReducer,
+    XMLData: xmlDataReducer,
+    EXCELData: excelDataReducer,
+    searchPartnersData: searchPartnersDataReducer,
+    buyerAndPriceData: buyerAndPriceReducer,
+    EXCELProductListData: productListReducer
 });
