@@ -5,8 +5,8 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
 export function useGetLocationPathName() {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const path = location.pathname;
-  return { navigate, path };
+    const navigate = useNavigate();
+    const location = useLocation();
+    const path = location.pathname;
+    return { navigate, path };
 }

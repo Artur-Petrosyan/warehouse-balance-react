@@ -30,9 +30,9 @@
  * }
  */
 export const Button = ({ children, variant = "", ...rest }) => {
-  return (
-    <button {...rest} className={`button ${variant}`}>
-      {children}
-    </button>
-  );
+    return (
+        <button {...rest} className={`button ${variant}`}>
+            {children}
+        </button>
+    );
 };

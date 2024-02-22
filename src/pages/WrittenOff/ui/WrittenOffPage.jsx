@@ -3,17 +3,16 @@ import { useWrittenOffPageModel } from "../model";
 import { WrittenOffPagePureMemo } from "./components";
 
 function WrittenOffController() {
-  const { data, buyerData, openXmlFile, removeXMLData, beforeUpload } =
-    useWrittenOffPageModel();
-  return (
-    <WrittenOffPagePureMemo
-      data={data}
-      buyerData={buyerData}
-      openXmlFile={openXmlFile}
-      removeXMLData={removeXMLData}
-      beforeUpload={beforeUpload}
-    />
-  );
+    const { data, buyerData, openXmlFile, removeXMLData, beforeUpload } = useWrittenOffPageModel();
+    return (
+        <WrittenOffPagePureMemo
+            data={data}
+            buyerData={buyerData}
+            openXmlFile={openXmlFile}
+            removeXMLData={removeXMLData}
+            beforeUpload={beforeUpload}
+        />
+    );
 }
 
 export default WrittenOffController;

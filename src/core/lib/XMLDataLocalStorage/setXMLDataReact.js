@@ -17,20 +17,20 @@ import { totalAmount } from "../totalAmount";
  *   handleUpload(file);
  * };
  */
-export const setUploadXMLToLocalStorage = (file) => {
-  if (file?.type === "text/xml") {
-    const reader = new FileReader();
-    reader.onload = async function (e) {
-      const xmlData = e.target.result;
-      localStorage.setItem("xmlData", xmlData);
-      const XMLData = await getXMLDataFromLocalStorage("Good");
-      const arrayFromXML = arrayFromHTMLCollection(XMLData);
-      store.dispatch(setXmlData(totalAmount(arrayFromXML)));
-      store.dispatch(asyncSetBuyerAndPriceData());
-    };
-    reader.readAsText(file);
-    return false;
-  } else {
-    return "file type is not xml";
-  }
+export const setUploadXMLToLocalStorage = file => {
+    if (file?.type === "text/xml") {
+        const reader = new FileReader();
+        reader.onload = async function (e) {
+            const xmlData = e.target.result;
+            localStorage.setItem("xmlData", xmlData);
+            const XMLData = await getXMLDataFromLocalStorage("Good");
+            const arrayFromXML = arrayFromHTMLCollection(XMLData);
+            store.dispatch(setXmlData(totalAmount(arrayFromXML)));
+            store.dispatch(asyncSetBuyerAndPriceData());
+        };
+        reader.readAsText(file);
+        return false;
+    } else {
+        return "file type is not xml";
+    }
 };

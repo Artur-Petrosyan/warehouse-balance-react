@@ -25,11 +25,11 @@ import { NavBar } from "../NavBar/NavBar";
 import "src/core/ui/components/Header/header.scss";
 
 export const Header = ({ navList }) => {
-  return (
-    <header className="header">
-      <NavBar navList={navList} />
-      <InputSearch />
-      <Button variant={"button-logout"}>Log out</Button>
-    </header>
-  );
+    return (
+        <header className="header">
+            <NavBar navList={navList} />
+            <InputSearch />
+            <Button variant={"button-logout"}>Log out</Button>
+        </header>
+    );
 };

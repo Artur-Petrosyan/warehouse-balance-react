@@ -19,8 +19,8 @@
  *   <Button icon={<UploadOutlined />}>Upload</Button>
  * </Upload>
  */
-export const getUploadProps = (beforeUpload) => ({
-  beforeUpload: beforeUpload,
-  multiple: false,
-  showUploadList: false,
+export const getUploadProps = beforeUpload => ({
+    beforeUpload: beforeUpload,
+    multiple: false,
+    showUploadList: false
 });

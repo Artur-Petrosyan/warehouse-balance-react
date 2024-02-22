@@ -51,25 +51,23 @@ import { useNavigate } from "react-router-dom";
 import PaginationAnt from "antd/es/pagination";
 import "src/core/ui/components/Pagination/pagination.scss";
 
-export const Pagination = memo(
-  ({ data, setPageNumber, pageNumber, pageName }) => {
+export const Pagination = memo(({ data, setPageNumber, pageNumber, pageName }) => {
     const navigate = useNavigate();
 
     return (
-      <PaginationAnt
-        current={pageNumber}
-        defaultCurrent={1}
-        pageSize={40}
-        size="large"
-        className="pagination"
-        total={data.length}
-        showQuickJumper={true}
-        onChange={(num) => {
-          navigate(`/${pageName}/${Number(num)}`);
-          setPageNumber(num);
-        }}
-        style={{ itemActiveBg: "black" }}
-      />
+        <PaginationAnt
+            current={pageNumber}
+            defaultCurrent={1}
+            pageSize={40}
+            size="large"
+            className="pagination"
+            total={data.length}
+            showQuickJumper={true}
+            onChange={num => {
+                navigate(`/${pageName}/${Number(num)}`);
+                setPageNumber(num);
+            }}
+            style={{ itemActiveBg: "black" }}
+        />
     );
-  },
-);
+});

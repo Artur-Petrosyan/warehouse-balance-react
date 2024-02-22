@@ -11,18 +11,18 @@
  * getXMLDataFromLocalStorage(getItems);
  * @param tagName
  */
-export const getXMLDataFromLocalStorage = (tagName) => {
-  let xmlData = localStorage.getItem("xmlData");
-  if (xmlData) {
-    try {
-      let parser = new DOMParser();
-      let xmlDoc = parser.parseFromString(xmlData, "text/xml");
-      return xmlDoc.getElementsByTagName(tagName);
-    } catch (error) {
-      console.error("Error parsing XML:", error);
-      return null;
+export const getXMLDataFromLocalStorage = tagName => {
+    let xmlData = localStorage.getItem("xmlData");
+    if (xmlData) {
+        try {
+            let parser = new DOMParser();
+            let xmlDoc = parser.parseFromString(xmlData, "text/xml");
+            return xmlDoc.getElementsByTagName(tagName);
+        } catch (error) {
+            console.error("Error parsing XML:", error);
+            return null;
+        }
+    } else {
+        return null;
     }
-  } else {
-    return null;
-  }
 };

@@ -4,10 +4,10 @@
  * @returns {Array} - An array of numbers representing the pages.
  */
 export function getPagesForPagination(data) {
-  let numOfPages = [];
-  let pages = Math.ceil(data.length / 25);
-  for (let i = 1; i <= pages; i++) {
-    numOfPages.push(i);
-  }
-  return numOfPages;
+    let numOfPages = [];
+    let pages = Math.ceil(data.length / 25);
+    for (let i = 1; i <= pages; i++) {
+        numOfPages.push(i);
+    }
+    return numOfPages;
 }

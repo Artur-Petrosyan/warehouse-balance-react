@@ -19,7 +19,7 @@
  * // ]
  */
 export const joinArrays = (arr1, arr2) => {
-  return arr1.map((item, index) => {
-    return { ...item, ...arr2[index] };
-  });
+    return arr1.map((item, index) => {
+        return { ...item, ...arr2[index] };
+    });
 };

@@ -23,29 +23,29 @@
  */
 import { similarityObjectsByName } from "./similarityObjectsByName";
 
-export const totalAmount = (data) =>
-  data.reduce((acc, obj) => {
-    const existingObj = similarityObjectsByName(acc, obj);
-    if (existingObj) {
-      existingObj.amount += obj.amount;
-      existingObj.notNDS += obj.notNDS;
-      existingObj.totalPrice += obj.totalPrice;
-    } else {
-      acc.push({
-        key: obj.key,
-        name: obj.name,
-        unit: obj.unit,
-        amount: obj.amount,
-        notNDS: obj.notNDS,
-        totalPrice: obj.totalPrice,
-      });
-    }
+export const totalAmount = data =>
+    data.reduce((acc, obj) => {
+        const existingObj = similarityObjectsByName(acc, obj);
+        if (existingObj) {
+            existingObj.amount += obj.amount;
+            existingObj.notNDS += obj.notNDS;
+            existingObj.totalPrice += obj.totalPrice;
+        } else {
+            acc.push({
+                key: obj.key,
+                name: obj.name,
+                unit: obj.unit,
+                amount: obj.amount,
+                notNDS: obj.notNDS,
+                totalPrice: obj.totalPrice
+            });
+        }
 
-    return acc.map((item) => {
-      return {
-        ...item,
-        notNDS: Number(item?.notNDS.toFixed(2)),
-        totalPrice: Number(item?.totalPrice.toFixed(2)),
-      };
-    });
-  }, []);
+        return acc.map(item => {
+            return {
+                ...item,
+                notNDS: Number(item?.notNDS.toFixed(2)),
+                totalPrice: Number(item?.totalPrice.toFixed(2))
+            };
+        });
+    }, []);

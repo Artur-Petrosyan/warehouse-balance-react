@@ -37,39 +37,39 @@ const { Search } = Input;
  * export default inputSearch;
  */
 export const InputSearch = ({ placeholderText }) => {
-  const dispatch = useDispatch();
-  const [searchQuery, setSearchQuery] = useState("");
-  const data = useSelector((state) => state.EXCELData);
+    const dispatch = useDispatch();
+    const [searchQuery, setSearchQuery] = useState("");
+    const data = useSelector(state => state.EXCELData);
 
-  useEffect(() => {
-    if (searchQuery) {
-      const timeOutId = setTimeout(() => {
-        dispatch(
-          setSearchPartnersData({
-            data: data.EXCELData || [],
-            query: removeAllSymbolsFromString(searchQuery),
-          }),
-        );
-      }, 1000);
-      return () => clearTimeout(timeOutId);
-    } else {
-      dispatch(
-        setSearchPartnersData({
-          data: [],
-          query: searchQuery,
-        }),
-      );
-    }
-  }, [searchQuery, dispatch, data]);
+    useEffect(() => {
+        if (searchQuery) {
+            const timeOutId = setTimeout(() => {
+                dispatch(
+                    setSearchPartnersData({
+                        data: data.EXCELData || [],
+                        query: removeAllSymbolsFromString(searchQuery)
+                    })
+                );
+            }, 1000);
+            return () => clearTimeout(timeOutId);
+        } else {
+            dispatch(
+                setSearchPartnersData({
+                    data: [],
+                    query: searchQuery
+                })
+            );
+        }
+    }, [searchQuery, dispatch, data]);
 
-  return (
-    <div className="header__search">
-      <Search
-        placeholder={placeholderText}
-        allowClear
-        onChange={(e) => setSearchQuery(e.target.value)}
-        size="large"
-      />
-    </div>
-  );
+    return (
+        <div className="header__search">
+            <Search
+                placeholder={placeholderText}
+                allowClear
+                onChange={e => setSearchQuery(e.target.value)}
+                size="large"
+            />
+        </div>
+    );
 };
