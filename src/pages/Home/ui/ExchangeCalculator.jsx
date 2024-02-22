@@ -1,55 +1,65 @@
-import React, { useCallback, useEffect, useMemo, useState } from "react";
-import { fetchGetExchangeRate } from "pages/Home/lib/fetchGetExchangeData";
-import { Select, Typography } from "antd";
+import React from "react";
+import { Button, Col, Form, Input, Row, Typography } from "antd";
 import { Loader } from "core";
-import cc, { data } from "currency-codes";
+import { SelectSearchCurrency } from "./SearchCurrency";
+import { useExchangeCalculatorModel } from "../model/useExchangeCalculatorModel";
 
 const ExchangeCalculator = () => {
-    const [rate, setRate] = useState("");
-    // const [currencies, setCurrencies] = useState();
-    const currencyData = useMemo(() => cc.data, []);
-    //TODO: add the default value in "Select" component
-    //TODO: add second "SELECT" component in right side
-    //TODO: add flags in SELECT.OPTION
-    //TODO: add logic for get rate in 'onChange' SELECT
-    const getRateData = useCallback(async () => {
-        try {
-            const data = await fetchGetExchangeRate();
-            setRate(data);
-        } catch (e) {
-            console.log(e);
-        }
-    }, []);
-
-    const selectOnChange = value => {
-        console.log(value);
-    };
-
-    useEffect(() => {
-        console.log("worked");
-        getRateData();
-        // getCurrenciesData();
-    }, [getRateData]);
-    console.log(data);
+    const { form, rate, currencyData, searchCurrency, handleOk } = useExchangeCalculatorModel();
     return (
-        <div>
-            {rate}
-            <div>
-                {currencyData ? (
-                    <Select onChange={selectOnChange} style={{ width: "291px" }}>
-                        {currencyData.map(({ code, currency }) => (
-                            <Select.Option key={code} value={code}>
-                                <Typography.Text>
-                                    {code} {currency}
-                                </Typography.Text>
-                            </Select.Option>
-                        ))}
-                    </Select>
-                ) : (
-                    <Loader />
-                )}
-            </div>
-        </div>
+        <>
+            {currencyData ? (
+                <Row align={"stretch"} justify={"space-around"} wrap={false} style={{ background: "white" }}>
+                    <Form form={form} onFinish={values => handleOk(values)} layout={"vertical"}>
+                        <Col span={24}>
+                            <Typography.Title level={1}>Currency Converter</Typography.Title>
+                        </Col>
+                        <Form.Item
+                            name="amount"
+                            label={<span>Amount</span>}
+                            rules={[
+                                {
+                                    message: "Please enter a valid amount",
+                                    pattern: /^\d+$/
+                                }
+                            ]}
+                        >
+                            <Col>
+                                <Input
+                                    style={{
+                                        width: 400,
+                                        height: 50,
+                                        marginBottom: 20
+                                    }}
+                                />
+                            </Col>
+                        </Form.Item>
+                        <Col>
+                            <Form.Item name="from" hasFeedback label={<span>From</span>} initialValue={"EUR"}>
+                                <SelectSearchCurrency searchCurrency={searchCurrency} currencyData={currencyData} />
+                            </Form.Item>
+                        </Col>
+                        <Col>
+                            <Form.Item name="to" hasFeedback label={<span>To</span>} initialValue={"USD"}>
+                                <SelectSearchCurrency searchCurrency={searchCurrency} currencyData={currencyData} />
+                            </Form.Item>
+                        </Col>
+                        <Col span={24}>
+                            <Form.Item>
+                                <Button size={"large"} type={"primary"} htmlType="submit" style={{ width: 400 }}>
+                                    Convert
+                                </Button>
+                            </Form.Item>
+                        </Col>
+                        <Col span={24}>
+                            <Typography.Title level={1}>{rate}</Typography.Title>
+                        </Col>
+                    </Form>
+                </Row>
+            ) : (
+                <Loader />
+            )}
+        </>
     );
 };
 
