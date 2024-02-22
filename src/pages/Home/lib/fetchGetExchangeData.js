@@ -1,7 +1,7 @@
 import { API_KEY } from "./API_KEY";
 
-export const fetchGetExchangeRate = async () => {
-    const url = `https://currency-exchange.p.rapidapi.com/exchange?from=KWD&to=USD`;
+export const fetchGetExchangeRate = async (from = "USD", to = "EUR") => {
+    const url = `https://currency-exchange.p.rapidapi.com/exchange?from=${from}&to=${to}`;
     const options = {
         method: "GET",
         headers: {
@@ -11,8 +11,7 @@ export const fetchGetExchangeRate = async () => {
     };
     try {
         const response = await fetch(url, options);
-        const res = await response.json();
-        return Number(res?.toFixed(3));
+        return await response.json();
     } catch (error) {
         console.error(error);
     }
