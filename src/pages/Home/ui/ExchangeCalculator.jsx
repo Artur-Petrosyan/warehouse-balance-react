@@ -6,6 +6,8 @@ import { useExchangeCalculatorModel } from "../model/useExchangeCalculatorModel"
 
 const ExchangeCalculator = () => {
     const { form, rate, currencyData, searchCurrency, handleOk } = useExchangeCalculatorModel();
+
+    //TODO: add loader when rate is not defined
     return (
         <>
             {currencyData ? (
