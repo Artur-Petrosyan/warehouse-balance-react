@@ -1,16 +1,14 @@
 import React from "react";
-import { Button, Col, Form, Input, Row, Typography } from "antd";
-import { Loader } from "core";
+import { Button, Col, Flex, Form, Input, Row, Spin, Typography } from "antd";
 import { SelectSearchCurrency } from "./SearchCurrency";
 import { useExchangeCalculatorModel } from "../model/useExchangeCalculatorModel";
 
 const ExchangeCalculator = () => {
-    const { form, rate, currencyData, searchCurrency, handleOk } = useExchangeCalculatorModel();
-
+    const { form, rate, currencyData, searchCurrency, handleOk, isLoading } = useExchangeCalculatorModel();
     //TODO: add loader when rate is not defined
     return (
         <>
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <Flex justify={"center"}>
                 {currencyData ? (
                     <Row
                         align={"middle"}
@@ -27,6 +25,7 @@ const ExchangeCalculator = () => {
                                 <Form.Item
                                     name="amount"
                                     label={<span>Amount</span>}
+                                    initialValue={1}
                                     rules={[
                                         {
                                             message: "Please enter a valid amount",
@@ -44,13 +43,21 @@ const ExchangeCalculator = () => {
                             </Col>
 
                             <Col>
-                                <Form.Item name="from" hasFeedback label={<span>From</span>} initialValue={"EUR"}>
-                                    <SelectSearchCurrency searchCurrency={searchCurrency} currencyData={currencyData} />
+                                <Form.Item name="from" label={<span>From</span>}>
+                                    <SelectSearchCurrency
+                                        searchCurrency={searchCurrency}
+                                        currencyData={currencyData}
+                                        initialValue={"EUR"}
+                                    />
                                 </Form.Item>
                             </Col>
                             <Col>
-                                <Form.Item name="to" hasFeedback label={<span>To</span>} initialValue={"USD"}>
-                                    <SelectSearchCurrency searchCurrency={searchCurrency} currencyData={currencyData} />
+                                <Form.Item name="to" label={<span>To</span>}>
+                                    <SelectSearchCurrency
+                                        searchCurrency={searchCurrency}
+                                        currencyData={currencyData}
+                                        initialValue={"USD"}
+                                    />
                                 </Form.Item>
                             </Col>
                             <Col>
@@ -61,14 +68,18 @@ const ExchangeCalculator = () => {
                                 </Form.Item>
                             </Col>
                             <Col>
-                                <Typography.Title level={1}>{rate}</Typography.Title>
+                                {!isLoading ? (
+                                    <Typography.Title level={1}>{rate}</Typography.Title>
+                                ) : (
+                                    <Spin size={"large"} />
+                                )}
                             </Col>
                         </Form>
                     </Row>
                 ) : (
-                    <Loader />
+                    <Spin size={"large"} />
                 )}
-            </div>
+            </Flex>
         </>
     );
 };
