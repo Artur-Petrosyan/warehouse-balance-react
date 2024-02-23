@@ -6,7 +6,6 @@ export const SelectSearchCurrency = ({ searchCurrency, currencyData, onChange, d
         <Select
             showSearch
             style={{
-                width: 400,
                 height: 50,
                 marginBottom: 20
             }}
