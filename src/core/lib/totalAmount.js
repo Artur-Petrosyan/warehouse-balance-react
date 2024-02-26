@@ -44,6 +44,7 @@ export const totalAmount = data =>
         return acc.map(item => {
             return {
                 ...item,
+                amount: Number(item?.amount.toFixed(2)),
                 notNDS: Number(item?.notNDS.toFixed(2)),
                 totalPrice: Number(item?.totalPrice.toFixed(2))
             };
