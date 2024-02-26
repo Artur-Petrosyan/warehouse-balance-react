@@ -14,6 +14,7 @@ export const fetchGetExchangeRate = async (from, to, setIsLoading, setError) => 
         const response = await fetch(url, options);
         if (response.status === 504) throw new Error("The server is currently unavailable. Please try again later.");
         const data = await response.json();
+        setError("");
         setIsLoading(false);
         return data;
     } catch (error) {
