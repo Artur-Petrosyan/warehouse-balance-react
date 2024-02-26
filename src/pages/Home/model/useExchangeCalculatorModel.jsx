@@ -8,10 +8,10 @@ export const useExchangeCalculatorModel = () => {
     const [rate, setRate] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const currencyData = useMemo(() => cc.data, []);
-
+    const [errorMessage, setErrorMessage] = useState("");
     const getRateData = useCallback(async (amount = 1, from = "EUR", to = "USD") => {
         try {
-            const data = await fetchGetExchangeRate(from, to, setIsLoading);
+            const data = await fetchGetExchangeRate(from, to, setIsLoading, setErrorMessage);
             setRate((amount * data).toFixed(3));
         } catch (e) {
             console.log(e);
@@ -31,5 +31,5 @@ export const useExchangeCalculatorModel = () => {
     useEffect(() => {
         getRateData();
     }, [getRateData]);
-    return { form, rate, currencyData, searchCurrency, handleOk, isLoading };
+    return { form, rate, currencyData, searchCurrency, handleOk, isLoading, errorMessage };
 };
