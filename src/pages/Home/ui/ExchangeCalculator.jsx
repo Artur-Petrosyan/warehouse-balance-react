@@ -4,8 +4,8 @@ import { SelectSearchCurrency } from "./SearchCurrency";
 import { useExchangeCalculatorModel } from "../model/useExchangeCalculatorModel";
 
 const ExchangeCalculator = () => {
-    const { form, rate, currencyData, searchCurrency, handleOk, isLoading } = useExchangeCalculatorModel();
-    //TODO: add loader when rate is not defined
+    const { form, rate, currencyData, searchCurrency, handleOk, isLoading, errorMessage } =
+        useExchangeCalculatorModel();
     return (
         <>
             <Flex justify={"center"}>
@@ -68,10 +68,16 @@ const ExchangeCalculator = () => {
                                 </Form.Item>
                             </Col>
                             <Col>
-                                {!isLoading ? (
-                                    <Typography.Title level={1}>{rate}</Typography.Title>
-                                ) : (
+                                {isLoading ? (
                                     <Spin size={"large"} />
+                                ) : errorMessage ? (
+                                    <Typography.Title style={{ color: "red" }} level={5}>
+                                        {errorMessage}
+                                    </Typography.Title>
+                                ) : (
+                                    <>
+                                        <Typography.Title level={1}>{rate}</Typography.Title>
+                                    </>
                                 )}
                             </Col>
                         </Form>
