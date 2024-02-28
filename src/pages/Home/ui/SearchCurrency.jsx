@@ -2,6 +2,21 @@ import { Flex, Select, Typography } from "antd";
 import React from "react";
 import Flags from "./Flags";
 
+const renderCurrencyOption = ({ code, currency }) => {
+    const truncatedCurrency = currency.length > 24 ? `${currency.slice(0, 24)}...` : currency;
+    const displayText = `${code} - ${truncatedCurrency}`;
+    return (
+        <Select.Option key={code} value={code} maxTagTextLength={10}>
+            <Flex align="center" style={{ gap: 10 }}>
+                <Flags currency={code} />
+                <Typography.Text style={{ fontSize: 16 }} strong={true}>
+                    {displayText}
+                </Typography.Text>
+            </Flex>
+        </Select.Option>
+    );
+};
+
 export const SelectSearchCurrency = ({ initialValue, searchCurrency, currencyData, onChange }) => {
     return (
         <Select
@@ -21,16 +36,7 @@ export const SelectSearchCurrency = ({ initialValue, searchCurrency, currencyDat
                 (optionA?.label ?? "").toLowerCase().localeCompare((optionB?.label ?? "").toLowerCase())
             }
         >
-            {currencyData.map(({ code, currency }) => (
-                <Select.Option key={code} value={code} maxTagTextLength={10}>
-                    <Flex align={"center"} style={{ gap: 10 }}>
-                        <Flags currency={code} />
-                        <Typography.Text style={{ fontSize: 16 }} strong={true}>
-                            {currency.length > 24 ? `${code} - ${currency.slice(0, 24)}...` : `${code} - ${currency}`}
-                        </Typography.Text>
-                    </Flex>
-                </Select.Option>
-            ))}
+            {currencyData.map(renderCurrencyOption)}
         </Select>
     );
 };
