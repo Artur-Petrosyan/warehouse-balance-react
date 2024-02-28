@@ -4,7 +4,7 @@ import { SelectSearchCurrency } from "./SearchCurrency";
 import { useExchangeCalculatorModel } from "../model/useExchangeCalculatorModel";
 
 const ExchangeCalculator = () => {
-    const { form, rate, currencyData, searchCurrency, handleOk, isLoading, errorMessage } =
+    const { form, rate, currencyData, searchCurrency, handleOk, isLoading, errorMessage, isMobile } =
         useExchangeCalculatorModel();
     return (
         <>
@@ -14,7 +14,13 @@ const ExchangeCalculator = () => {
                         align={"middle"}
                         justify={"space-around"}
                         wrap={false}
-                        style={{ background: "white", marginTop: "30px", borderRadius: 15, width: "95%" }}
+                        style={{
+                            background: "white",
+                            marginTop: "30px",
+                            borderRadius: 15,
+                            width: "80%",
+                            padding: "30px"
+                        }}
                         gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}
                     >
                         <Form form={form} onFinish={values => handleOk(values)} layout={"vertical"}>
@@ -62,7 +68,7 @@ const ExchangeCalculator = () => {
                             </Col>
                             <Col>
                                 <Form.Item>
-                                    <Button size={"large"} type={"primary"} htmlType="submit">
+                                    <Button size={isMobile ? "small" : "large"} htmlType="submit">
                                         Convert
                                     </Button>
                                 </Form.Item>
