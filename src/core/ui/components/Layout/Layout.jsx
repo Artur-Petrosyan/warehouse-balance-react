@@ -65,7 +65,7 @@ const Layout = () => {
                 <div className="isMobile">
                     <div className="isMobile__button">
                         <Button type="primary" icon={<MenuUnfoldOutlined />} onClick={showDrawer} />
-                        <Typography.Title level={1}>ClearCountLite</Typography.Title>
+                        <Typography.Title level={2}>ClearCountLite</Typography.Title>
                     </div>
                     <Drawer onClose={onClose} open={open}>
                         <Menu
@@ -89,7 +89,7 @@ const Layout = () => {
                     }}
                 >
                     <RouterMemo />
-                    <FloatButton.BackTop visibilityHeight={400} />
+                    <FloatButton.BackTop visibilityHeight={500} />
                 </Content>
                 <Footer
                     style={{
