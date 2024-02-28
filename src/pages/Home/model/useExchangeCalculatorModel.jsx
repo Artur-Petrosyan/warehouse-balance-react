@@ -2,6 +2,7 @@ import { Form } from "antd";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import cc from "currency-codes";
 import { fetchGetExchangeRate } from "../lib/fetchGetExchangeData";
+import useMatchMedia from "core/hooks/MediaQueryList/useMatchMedia";
 
 export const useExchangeCalculatorModel = () => {
     const [form] = Form.useForm();
@@ -9,6 +10,7 @@ export const useExchangeCalculatorModel = () => {
     const [isLoading, setIsLoading] = useState(true);
     const currencyData = useMemo(() => cc.data, []);
     const [errorMessage, setErrorMessage] = useState("");
+    const { isMobile } = useMatchMedia();
     const getRateData = useCallback(async (amount = 1, from = "EUR", to = "USD") => {
         try {
             const data = await fetchGetExchangeRate(from, to, setIsLoading, setErrorMessage);
@@ -17,9 +19,9 @@ export const useExchangeCalculatorModel = () => {
             console.log(e);
         }
     }, []);
-    const searchCurrency = (input, option) => {
+    const searchCurrency = useCallback((input, option) => {
         return (option?.value.toLowerCase() ?? "").includes(input.toLowerCase());
-    };
+    }, []);
     const handleOk = ({ amount = 1, from = "EUR", to = "USD" }) => {
         if (amount && from && to && from !== to) {
             getRateData(amount, from, to);
@@ -31,5 +33,5 @@ export const useExchangeCalculatorModel = () => {
     useEffect(() => {
         getRateData();
     }, [getRateData]);
-    return { form, rate, currencyData, searchCurrency, handleOk, isLoading, errorMessage };
+    return { form, rate, currencyData, searchCurrency, handleOk, isLoading, errorMessage, isMobile };
 };
