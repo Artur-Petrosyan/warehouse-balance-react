@@ -1,0 +1,36 @@
+{
+  "components": {
+    "Input": {
+      "controlHeight": 35,
+      "colorText": "rgb(75, 86, 117)",
+      "colorBorder": "rgb(225, 227, 234)",
+      "colorTextPlaceholder": "rgb(126, 130, 153)",
+      "colorPrimaryHover": "rgb(181, 181, 195)",
+      "colorPrimaryActive": "rgb(181, 181, 195)",
+      "activeBorderColor": "rgb(181, 181, 195)",
+      "controlOutline": "rgba(0, 0, 0, 0)",
+      "fontSize": 18,
+      "paddingInline": 12,
+      "colorBgContainer": "rgb(255, 255, 255)"
+    },
+    "Button": {
+      "controlHeight": 50,
+      "controlHeightSM": 40,
+      "contentFontSizeSM": 16,
+      "colorPrimary": "rgb(0,115,255)",
+      "dangerColor": "red",
+      "dangerShadow": "red",
+      "colorSuccess": "#50CD89FF",
+      "fontSize": 18,
+      "colorText": "rgb(255,255,255)",
+      "colorPrimaryActive": "rgb(62, 151, 255)",
+      "colorPrimaryHover": "rgb(0,0,0)",
+      "defaultBg": "rgb(14,135,227)"
+    }
+  },
+  "token": {
+    "colorPrimary": "#0e87e3",
+    "colorInfo": "#009ef7",
+    "colorError": "#d9214e"
+  }
+}
