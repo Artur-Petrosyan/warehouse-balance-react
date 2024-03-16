@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import {
     AccountBookOutlined,
+    CloseOutlined,
     FileOutlined,
     HomeFilled,
     MenuUnfoldOutlined,
     TeamOutlined,
     UnorderedListOutlined
 } from "@ant-design/icons";
-import { Button, Drawer, FloatButton, Layout as LayoutAntd, Menu, Typography } from "antd";
+import { Button, Drawer, FloatButton, Layout as LayoutAntd, Menu } from "antd";
 import { RouterMemo } from "src/app/Providers/routes";
 import { useNavigation } from "core/hooks/useNavigation";
 import { useNavigate } from "react-router-dom";
 import { withMemo } from "core/hoc";
-import "./LayoutSider.scss";
 import useMatchMedia from "core/hooks/MediaQueryList/useMatchMedia";
 import useScrollToTop from "core/hooks/Scroll/useScrollToTop";
+import "./LayoutSider.scss";
+import Logo from "../Logo/Logo";
 
 const { Content, Footer, Sider } = LayoutAntd;
 
@@ -64,10 +66,32 @@ const Layout = () => {
             {(isMobile || isIpadOrTablet) && (
                 <div className="isMobile">
                     <div className="isMobile__button">
+                        <Logo />
                         <Button type="primary" icon={<MenuUnfoldOutlined />} onClick={showDrawer} />
-                        <Typography.Title level={2}>ClearCountLite</Typography.Title>
                     </div>
-                    <Drawer onClose={onClose} open={open}>
+                    <Drawer
+                        title={
+                            <div onClick={onClose}>
+                                <Logo name="ClearCountLite" />
+                            </div>
+                        }
+                        closeIcon={<CloseOutlined />}
+                        onClose={onClose}
+                        open={open}
+                        placement="left"
+                        footer={
+                            <Button
+                                type={"primary"}
+                                danger
+                                onClick={() => {
+                                    onClose();
+                                    navigation("/");
+                                }}
+                            >
+                                Log Out
+                            </Button>
+                        }
+                    >
                         <Menu
                             theme="light"
                             defaultSelectedKeys={["1"]}
@@ -96,7 +120,7 @@ const Layout = () => {
                         textAlign: "center"
                     }}
                 >
-                    Clear Count Lite ©2023 Created by Artur Petrosyan
+                    Clear Count Lite ©2023
                 </Footer>
             </LayoutAntd>
         </LayoutAntd>
