@@ -46,6 +46,11 @@ const Layout = () => {
     const showDrawer = () => {
         setOpen(true);
     };
+
+    const showNewDrawer = () => {
+        return "hello";
+    };
+    showNewDrawer();
     const onClose = () => {
         setOpen(false);
     };
@@ -120,7 +125,7 @@ const Layout = () => {
                         textAlign: "center"
                     }}
                 >
-                    Clear Count Lite ©2023
+                    <p> Clear Count Lite ©2023</p>
                 </Footer>
             </LayoutAntd>
         </LayoutAntd>
