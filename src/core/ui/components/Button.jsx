@@ -34,7 +34,7 @@ export const Button = ({ children, variant = "", ...rest }) => {
     console.log(children);
     return (
         <button {...rest} className={`button ${variant}`}>
-            {children}
+            {children} hello
         </button>
     );
 };
