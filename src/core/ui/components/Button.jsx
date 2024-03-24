@@ -30,6 +30,7 @@
  * }
  */
 export const Button = ({ children, variant = "", ...rest }) => {
+    console.log("WORKED");
     return (
         <button {...rest} className={`button ${variant}`}>
             {children}
